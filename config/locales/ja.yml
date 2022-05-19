@@ -1,0 +1,7 @@
+  ja:
+    enums:
+      inquiry:
+        support_status:
+          waiting: "未対応"
+          working: "対応中"
+          completed: "対応済"
