@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :master_categories,only:[:index,:create,:edit,:update]
     resources :master_livingwares,only:[:index,:new,:create,:edit,:update,:destroy]
     resources :inquiries,only:[:show,:update]
+    resources :customers,only:[:index,:show,:edit,:update]
   end
   
   devise_for :customers, controllers: {

@@ -1,4 +1,6 @@
 class Admin::InquiriesController < ApplicationController
+  before_action :authenticate_admin!
+  
   def show
     @inquiry = Inquiry.find(params[:id])
   end
