@@ -1,4 +1,12 @@
   ja:
+    activerecord:
+    models:
+      customer: 会員
+    attributes:
+      item:
+        name: ニックネーム
+        email: メールアドレス
+        
     enums:
       inquiry:
         support_status:
