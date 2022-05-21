@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_010735) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.boolean "is_active", default: true, null: false
-    t.integer "group_id", null: false
+    t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true

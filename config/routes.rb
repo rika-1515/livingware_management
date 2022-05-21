@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :public do
-    get 'groups/new'
-    get 'groups/index'
-    get 'groups/show'
-  end
   namespace :admin do
     root "homes#top"
     resources :master_categories,only:[:index,:create,:edit,:update]
@@ -19,6 +10,14 @@ Rails.application.routes.draw do
   
   root to:'public/homes#top'
   get '/guide'=>'public/homes#guide'
+  
+  get '/customers/quit'=>'public/customers#quit'
+  patch '/customer/out'=>'public/customers#out',as: 'out_customer'
+  
+  scope module: :public do
+    resource :customers,only:[:show,:edit,:update]
+    resources :groups,only:[:new,:create,:index,:show,:edit,:update,:destroy]
+  end
   
   devise_for :customers, controllers: {
     sessions: 'public/sessions',

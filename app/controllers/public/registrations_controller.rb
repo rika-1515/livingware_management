@@ -10,9 +10,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+
+    resource.save
+    group = Group.create(group_leader_customer_id: resource.id)
+    resource.update(group_id: group.id)
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,12 +42,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
+    protected
+  
+    # If you have extra params to permit, append them to the sanitizer.
+    def configure_sign_up_params
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:group_id])
+    end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
