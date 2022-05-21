@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :customers,only:[:index,:show,:edit,:update]
   end
   
+  root to:'public/homes#top'
+  get '/guide'=>'public/homes#guide'
+  
   devise_for :customers, controllers: {
     sessions: 'public/sessions',
     registrations: 'public/registrations' # signup view -> app/controllers/public/registrations_controller.rb
