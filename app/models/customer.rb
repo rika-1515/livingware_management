@@ -4,7 +4,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  belongs_to :group, optional: true
   has_many :inquiries, dependent: :destroy
+  
   
   validates :name, presence: true
   validates :email, presence: true
