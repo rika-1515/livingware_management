@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resource :customers,only:[:show,:edit,:update]
     resources :groups,only:[:new,:create,:index,:show,:edit,:update,:destroy]
+    resources :categories,only:[:index,:create,:edit,:update]
   end
   
   devise_for :customers, controllers: {

@@ -26,7 +26,7 @@
           　<ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
                 <li class="mx-3">
-                  <%= link_to "マイページ", customers_path,class:"btn btn-outline-secondary" %>
+                  <%= link_to "カテゴリー一覧", categories_path,class:"btn btn-outline-secondary" %>
                 </li>
                 <li class="mx-3">
                    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class:"btn btn-outline-secondary" %>

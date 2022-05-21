@@ -1,11 +1,17 @@
   ja:
     activerecord:
-    models:
-      customer: 会員
-    attributes:
-      item:
-        name: ニックネーム
-        email: メールアドレス
+      models:
+        customer: 会員
+      attributes:
+        item:
+          name: ニックネーム
+          email: メールアドレス
+          
+        category: カテゴリー
+      attributes:
+        category:
+          name: カテゴリー名
+        
         
     enums:
       inquiry:
