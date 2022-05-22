@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   namespace :admin do
     root "homes#top"
     resources :master_categories,only:[:index,:create,:edit,:update]
@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     resource :customers,only:[:show,:edit,:update]
     resources :groups,only:[:new,:create,:index,:show,:edit,:update,:destroy]
     resources :categories,only:[:index,:create,:edit,:update]
+    resources :livingwares,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
+      collection do
+        post :log
+      end
+    end
   end
   
   devise_for :customers, controllers: {
