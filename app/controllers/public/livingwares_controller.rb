@@ -1,6 +1,6 @@
 class Public::LivingwaresController < ApplicationController
   def index
-    @livingwares = current_customer.group.livingwares
+    @livingwares = current_customer.group.livingwares.order(:category_id)
     @categories = current_customer.group.categories
   end
   

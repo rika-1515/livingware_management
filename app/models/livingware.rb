@@ -12,4 +12,8 @@ class Livingware < ApplicationRecord
         livingware_image.variant(resize_to_limit: [width, height]).processed
     end
     
+    def to_buy_judge
+        self.amount - self.amount_standard
+    end
+    
 end
