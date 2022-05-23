@@ -22,9 +22,8 @@
       </thead>
   
       <tbody class="table-borderless">
-  
+          <% @livingwares.each do |livingware| %>
           <tr>
-            <% @livingwares.each do |livingware| %>
             <td>
               <% if livingware.to_buy_judge.negative? %>
                 <p class="text-danger font-weight-bold">購入必要</p>
@@ -50,7 +49,7 @@
               <%=livingware.note %>
             </td>
           </tr>
-        <% end %>
+          <% end %>
       </tbody>
     </table>
   </div> 

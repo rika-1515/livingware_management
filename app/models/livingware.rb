@@ -16,4 +16,8 @@ class Livingware < ApplicationRecord
         self.amount - self.amount_standard
     end
     
+    def buy_amount
+        self.amount_standard - self.amount
+    end
+    
 end

@@ -1,0 +1,61 @@
+<div class="container"> 
+  <div class = "row">
+    <h5><span class="bg-light text-dark">生活用品変更一覧</span></h5>
+    <div style="margin-left: auto;">
+      <%=link_to new_livingware_path,class:"d-flex justify-content-end" do %>
+        <i class="fas fa-plus-circle"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table">
+      <thead class="table-light">
+        <tr>
+          <th></th>
+          <th>変更</th>
+          <th>カテゴリー</th>
+          <th>生活用品</th>
+          <th>保管数</th>
+          <th>基準数</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+  
+      <tbody class="table-borderless">
+          <% @livingwares.each do |livingware| %>
+          <tr>
+            <td>
+              <% if livingware.to_buy_judge.negative? %>
+                <p class="text-danger font-weight-bold">購入必要</p>
+              <% else %>
+              <% end %>
+            </td>
+            <td></td>
+            <td>
+              <%=livingware.category.name %>
+            </td>
+            <td>
+              <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
+              <%=livingware.name %>
+              <% end %>
+            </td>
+            <td>
+              <%=livingware.amount.to_s(:delimited) %>
+            </td>
+            <td>
+              <%=livingware.amount_standard.to_s(:delimited) %>
+            </td>
+            <td>
+              <%=livingware.note %>
+            </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+    <%= form_with model: @livingware,url: livingwares_path do |f| %>
+    
+    <div align="center">
+    <%= f.submit '変更を確定する' ,class:"btn btn-success" %>
+    <% end %>
+  </div> 
+</div>

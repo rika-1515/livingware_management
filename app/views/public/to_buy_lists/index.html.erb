@@ -11,15 +11,17 @@
           <th>生活用品</th>
           <th>保管数</th>
           <th>基準数</th>
+          <th>購入数</th>
           <th>備考</th>
         </tr>
       </thead>
   
       <tbody class="table-borderless">
-  
-          <tr>
+            <%= form_with model:@livingware,url:log_livingwares_path,method: :post do |f| %>
             <% @livingwares.each do |livingware| %>
-            <td><%=livingware.to_buy_judge %></td>
+            <% if livingware.to_buy_judge.negative? %>
+          <tr>
+            <td><%=check_box_tag :change%></td>
             <td>
               <%=livingware.category.name %>
             </td>
@@ -35,11 +37,17 @@
               <%=livingware.amount_standard.to_s(:delimited) %>
             </td>
             <td>
+              <%=f.select :buy_amount, *[0..100], style: "width:25%" %>
+            </td>
+            <td>
               <%=livingware.note %>
             </td>
           </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
+    <%= f.submit '確認画面に進む' ,class:"btn btn-primary" %>
+    <% end %>
   </div> 
 </div>
