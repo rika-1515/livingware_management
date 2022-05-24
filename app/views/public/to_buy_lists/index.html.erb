@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <table class="table">
-      <thead class="table-light">
+      <thead class="table-warning">
         <tr>
           <th>変更</th>
           <th>カテゴリー</th>
@@ -16,12 +16,12 @@
         </tr>
       </thead>
   
-      <tbody class="table-borderless">
-            <%= form_with model:@livingware,url:log_livingwares_path,method: :post do |f| %>
+      <tbody>
+            <%= form_with model:@livingwares,url:log_livingwares_path,method: :post do |f| %>
             <% @livingwares.each do |livingware| %>
             <% if livingware.to_buy_judge.negative? %>
           <tr>
-            <td><%=check_box_tag :change%></td>
+            <td><%=check_box_tag livingware.change %></td>
             <td>
               <%=livingware.category.name %>
             </td>

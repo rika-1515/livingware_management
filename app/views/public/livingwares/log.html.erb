@@ -23,6 +23,7 @@
   
       <tbody class="table-borderless">
           <% @livingwares.each do |livingware| %>
+          
           <tr>
             <td>
               <% if livingware.to_buy_judge.negative? %>
