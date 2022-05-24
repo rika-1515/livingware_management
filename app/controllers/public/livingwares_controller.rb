@@ -1,10 +1,18 @@
 class Public::LivingwaresController < ApplicationController
   def index
-    @livingwares = current_customer.group.livingwares
+    @livingwares = current_customer.group.livingwares.order(:category_id)
     @categories = current_customer.group.categories
   end
   
   def log
+    @livingware = Livingware.new(livingware_params)
+    @categories = current_customer.group.categories
+    if params[:livingware][:change] == 'true'
+      @livingware.amount = @livingware.amount + buy_amount
+      @livingware.amount_standard = @livingware.amount_standard
+      @livingware.category.name = @livingware.category.name
+      @livingware.livingware.name = @livingware.livingware.name
+    end
   end
   
   def show

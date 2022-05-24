@@ -32,6 +32,9 @@
                   <%= link_to "カテゴリー一覧", categories_path,class:"btn btn-outline-secondary" %>
                 </li>
                 <li class="mx-3">
+                  <%= link_to "買い物リスト一覧", to_buy_lists_path,class:"btn btn-outline-secondary" %>
+                </li>
+                <li class="mx-3">
                    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class:"btn btn-outline-secondary" %>
                 </li>
               <% elsif admin_signed_in? %>

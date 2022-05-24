@@ -1,36 +1,27 @@
 <div class="container"> 
   <div class = "row">
-    <h5><span class="bg-light text-dark">生活用品一覧</span></h5>
-    <div style="margin-left: auto;">
-      <%=link_to new_livingware_path,class:"d-flex justify-content-end" do %>
-        <i class="fas fa-plus-circle"></i>
-      <% end %>
-    </div>
+    <h5><span class="bg-light text-dark">買い物リスト</span></h5>
   </div>
   <div class="row">
     <table class="table">
       <thead class="table-light">
         <tr>
-          <th></th>
           <th>変更</th>
           <th>カテゴリー</th>
           <th>生活用品</th>
           <th>保管数</th>
           <th>基準数</th>
+          <th>購入数</th>
           <th>備考</th>
         </tr>
       </thead>
   
       <tbody class="table-borderless">
-          <% @livingwares.each do |livingware| %>
+            <%= form_with model:@livingware,url:log_livingwares_path,method: :post do |f| %>
+            <% @livingwares.each do |livingware| %>
+            <% if livingware.to_buy_judge.negative? %>
           <tr>
-            <td>
-              <% if livingware.to_buy_judge.negative? %>
-                <p class="text-danger font-weight-bold">購入必要</p>
-              <% else %>
-              <% end %>
-            </td>
-            <td></td>
+            <td><%=check_box_tag :change%></td>
             <td>
               <%=livingware.category.name %>
             </td>
@@ -46,11 +37,17 @@
               <%=livingware.amount_standard.to_s(:delimited) %>
             </td>
             <td>
+              <%=f.select :buy_amount, *[0..100], style: "width:25%" %>
+            </td>
+            <td>
               <%=livingware.note %>
             </td>
           </tr>
           <% end %>
+        <% end %>
       </tbody>
     </table>
+    <%= f.submit '確認画面に進む' ,class:"btn btn-primary" %>
+    <% end %>
   </div> 
 </div>
