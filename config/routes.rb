@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :livingwares,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       collection do
         post :log
+        patch :update_all
       end
     end
   end

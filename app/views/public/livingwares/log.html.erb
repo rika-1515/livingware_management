@@ -1,18 +1,12 @@
 <div class="container"> 
   <div class = "row">
     <h5><span class="bg-light text-dark">生活用品変更一覧</span></h5>
-    <div style="margin-left: auto;">
-      <%=link_to new_livingware_path,class:"d-flex justify-content-end" do %>
-        <i class="fas fa-plus-circle"></i>
-      <% end %>
-    </div>
   </div>
   <div class="row">
     <table class="table">
+    <%= form_with url:update_all_livingwares_path, method: :patch do |fb| %>
       <thead class="table-light">
         <tr>
-          <th></th>
-          <th>変更</th>
           <th>カテゴリー</th>
           <th>生活用品</th>
           <th>保管数</th>
@@ -22,41 +16,35 @@
       </thead>
   
       <tbody class="table-borderless">
-          <% @livingwares.each do |livingware| %>
-          
-          <tr>
-            <td>
-              <% if livingware.to_buy_judge.negative? %>
-                <p class="text-danger font-weight-bold">購入必要</p>
-              <% else %>
-              <% end %>
-            </td>
-            <td></td>
-            <td>
-              <%=livingware.category.name %>
-            </td>
-            <td>
-              <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
-              <%=livingware.name %>
-              <% end %>
-            </td>
-            <td>
-              <%=livingware.amount.to_s(:delimited) %>
-            </td>
-            <td>
-              <%=livingware.amount_standard.to_s(:delimited) %>
-            </td>
-            <td>
-              <%=livingware.note %>
-            </td>
-          </tr>
+        <% @livingwares.each do |livingware| %>
+          <%= fb.fields_for "livingware[]", livingware do |f| %>
+            <tr>
+              <%= f.hidden_field :id,value:livingware.id %>
+              <td>
+                <%=livingware.category.name %>
+              </td>
+              <td>
+                <%=livingware.name %>
+              </td>
+              <td>
+                <%= f.hidden_field :amount, value: livingware.amount %>
+                <%=livingware.amount.to_s(:delimited) %>
+              </td>
+              <td>
+                <%=livingware.amount_standard.to_s(:delimited) %>
+              </td>
+              <td>
+                <%=livingware.note %>
+              </td>
+            </tr>
           <% end %>
+        <% end %>
       </tbody>
     </table>
-    <%= form_with model: @livingware,url: livingwares_path do |f| %>
     
     <div align="center">
-    <%= f.submit '変更を確定する' ,class:"btn btn-success" %>
+    <%= fb.submit '変更を確定する' ,class:"btn btn-success" %>
+    </div>
     <% end %>
-  </div> 
+  </div>
 </div>

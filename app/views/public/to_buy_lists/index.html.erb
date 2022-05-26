@@ -20,8 +20,6 @@
         <%= form_with url:log_to_buy_lists_path,method: :post do |fb| %>
           <% @livingwares.each do |livingware| %>
             <%= fb.fields_for "livingware[]", livingware do |f| %>
-
-            
             <% if livingware.to_buy_judge.negative? %>
             <tr>
               <td><%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %></td>
@@ -46,8 +44,6 @@
                 <%=livingware.note %>
               </td>
             </tr>
-
-            
             <% end %>
           <% end %>
         <% end %>
