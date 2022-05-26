@@ -17,37 +17,43 @@
       </thead>
   
       <tbody>
-            <%= form_with model:@livingwares,url:log_livingwares_path,method: :post do |f| %>
-            <% @livingwares.each do |livingware| %>
+        <%= form_with url:log_to_buy_lists_path,method: :post do |fb| %>
+          <% @livingwares.each do |livingware| %>
+            <%= fb.fields_for "livingware[]", livingware do |f| %>
+
+            
             <% if livingware.to_buy_judge.negative? %>
-          <tr>
-            <td><%=check_box_tag livingware.change %></td>
-            <td>
-              <%=livingware.category.name %>
-            </td>
-            <td>
-              <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
-              <%=livingware.name %>
-              <% end %>
-            </td>
-            <td>
-              <%=livingware.amount.to_s(:delimited) %>
-            </td>
-            <td>
-              <%=livingware.amount_standard.to_s(:delimited) %>
-            </td>
-            <td>
-              <%=f.select :buy_amount, *[0..100], style: "width:25%" %>
-            </td>
-            <td>
-              <%=livingware.note %>
-            </td>
-          </tr>
+            <tr>
+              <td><%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %></td>
+              <td>
+                <%=livingware.category.name %>
+               </td>
+              <td>
+                <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
+                <%=livingware.name %>
+                <% end %>
+              </td>
+              <td>
+                <%=livingware.amount.to_s(:delimited) %>
+              </td>
+              <td>
+                <%=livingware.amount_standard.to_s(:delimited) %>
+              </td>
+              <td>
+                <%= f.select :buy_amount, *[0..100], :selected => livingware.buy_amount, style: "width:25%" %>
+              </td>
+              <td>
+                <%=livingware.note %>
+              </td>
+            </tr>
+
+            
+            <% end %>
           <% end %>
         <% end %>
       </tbody>
     </table>
-    <%= f.submit '確認画面に進む' ,class:"btn btn-primary" %>
+    <%= fb.submit '確認画面に進む' ,class:"btn btn-primary" %>
     <% end %>
   </div> 
 </div>

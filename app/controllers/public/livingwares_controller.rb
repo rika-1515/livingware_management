@@ -7,7 +7,7 @@ class Public::LivingwaresController < ApplicationController
   def log
     @livingware = Livingware.new(livingware_params)
     @categories = current_customer.group.categories
-    @livingwares = Livingware.all
+    @livingwares = current_customer.group.livingwares
     if params[:livingware][:change] == 'true'
       @livingware.amount = @livingware.amount + @livingware.buy_amount
       @livingware.amount_standard = @livingware.amount_standard
