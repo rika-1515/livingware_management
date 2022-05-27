@@ -7,7 +7,6 @@ class Public::LivingwaresController < ApplicationController
   def log
     @livingware = Livingware.new(livingware_params)
     @categories = current_customer.group.categories
-    byebug
     @livingwares = []
     params[:livingware].select {|k, v| v[:id].present? }.each do |id, param|
       livingware = current_customer.group.livingwares.find(id)
