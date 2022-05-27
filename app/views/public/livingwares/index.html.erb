@@ -22,35 +22,39 @@
       </thead>
   
       <tbody class="table-borderless">
+        <%= form_with url:log_livingwares_path,method: :post do |fb| %>
           <% @livingwares.each do |livingware| %>
-          <tr>
-            <td>
-              <% if livingware.to_buy_judge.negative? %>
-                <p class="text-danger font-weight-bold">購入必要</p>
-              <% else %>
-              <% end %>
-            </td>
-            <td></td>
-            <td>
-              <%=livingware.category.name %>
-            </td>
-            <td>
-              <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
-              <%=livingware.name %>
-              <% end %>
-            </td>
-            <td>
-              <%=livingware.amount.to_s(:delimited) %>
-            </td>
-            <td>
-              <%=livingware.amount_standard.to_s(:delimited) %>
-            </td>
-            <td>
-              <%=livingware.note %>
-            </td>
-          </tr>
+            <%= fb.fields_for "livingware[]", livingware do |f| %>
+              <tr>
+                <td>
+                  <% if livingware.to_buy_judge.negative? %>
+                    <p class="text-danger font-weight-bold">購入必要</p>
+                  <% end %>
+                </td>
+                <td><%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %></td>
+                <td>
+                  <%=livingware.category.name %>
+                </td>
+                <td>
+                  <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
+                  <%=livingware.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= f.select :amount, *[0..100] %>
+                </td>
+                <td>
+                  <%=livingware.amount_standard.to_s(:delimited) %>
+                </td>
+                <td>
+                  <%=livingware.note %>
+                </td>
+              </tr>
+            <% end %>
           <% end %>
       </tbody>
     </table>
+    <%= fb.submit '確認画面に進む' ,class:"btn btn-primary" %>
+    <% end %>
   </div> 
 </div>

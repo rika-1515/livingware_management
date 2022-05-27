@@ -18,10 +18,16 @@ Rails.application.routes.draw do
     resource :customers,only:[:show,:edit,:update]
     resources :groups,only:[:new,:create,:index,:show,:edit,:update,:destroy]
     resources :categories,only:[:index,:create,:edit,:update]
-    resources :to_buy_lists,only:[:index]
+    resources :to_buy_lists,only:[:index] do
+      collection do
+        post :log
+        patch :update
+      end
+    end
     resources :livingwares,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       collection do
         post :log
+        patch :update_all
       end
     end
   end

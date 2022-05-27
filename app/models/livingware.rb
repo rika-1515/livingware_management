@@ -20,4 +20,5 @@ class Livingware < ApplicationRecord
         self.amount_standard - self.amount
     end
     
+
 end

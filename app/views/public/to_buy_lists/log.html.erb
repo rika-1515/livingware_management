@@ -1,0 +1,51 @@
+<div class="container"> 
+  <div class = "row">
+    <h5><span class="bg-light text-dark">生活用品変更一覧</span></h5>
+  </div>
+  <div class="row">
+    <%= form_with url:to_buy_lists_path, method: :patch do |fb| %>
+      <table class="table">
+        <thead class="table-light">
+          <tr>
+            <th>カテゴリー</th>
+            <th>生活用品</th>
+            <th>保管数</th>
+            <th>基準数</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+    
+        <tbody class="table-borderless">
+          <% @livingwares.each do |livingware| %>
+            <%= fb.fields_for "livingware[]", livingware do |f| %>
+              <tr>
+                <%= f.hidden_field :id,value:livingware.id %>
+                <td>
+                  <%=livingware.category.name %>
+                </td>
+                <td>
+                  <%=livingware.name %>
+                </td>
+                <td>
+                  <%= f.hidden_field :amount, value: livingware.amount %>
+                  <%= livingware.amount.to_s(:delimited) %>
+                </td>
+                <td>
+                  <%=livingware.amount_standard.to_s(:delimited) %>
+                </td>
+                <td>
+                  <%=livingware.note %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      
+      
+      <div align="center">
+        <%= fb.submit '変更を確定する' ,class:"btn btn-success" %>
+      </div>
+    <% end %>
+  </div> 
+</div>
