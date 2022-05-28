@@ -1,0 +1,44 @@
+<div class="container">
+    <h5><span class="bg-light text-dark">お問い合わせ</span></h5>
+        <% if @inquiry.errors.any? %>
+            <div class="alert alert-danger">
+                <%= @inquiry.errors.count %>件のエラーが発生しました
+                <ul>
+                    <% @inquiry.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+    <p>お問い合わせありがとうございます。<br>
+       回答は会員登録いただいておりますメールアドレスに送信いたします。<br>
+       もし異なるメールアドレスに送信をご希望される場合は内容にメールアドレスの記載をお願いいたします。</p>
+    <%= form_with model: @inquiry,url: @inquiries_path,local:true do |f| %>
+    <table>
+        <tr>
+            <div class="field">
+                <td>
+                    <%= f.label :タイトル %>
+                </td>
+                <td>
+                    <%= f.text_field :title %>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="field">
+                <td>
+                    <%= f.label :内容 %>
+                </td>
+                <td>
+                    <%= f.text_area :body %>
+                </td>
+            </div>
+        </tr>
+    </table>
+    
+    <div align="right">
+      <%= f.submit '送信',class:"btn btn-success", data: {confirm: "問い合わせ内容を送信します。よろしいですか？"} %>
+    </div>
+    <% end %>
+</div>
