@@ -12,6 +12,11 @@
         category:
           name: カテゴリー名
         
+        inquiry: お問い合わせ
+      attributes:
+        inquiry:
+          title: タイトル
+          body: 内容
         
     enums:
       inquiry:
