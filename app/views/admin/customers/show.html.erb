@@ -1,10 +1,16 @@
 <div class="container">  
-    <h5><span class="bg-light text-dark"><%=@customer.last_name %><%=@customer.first_name %>さんの会員詳細</span></h5>
+    <h5><span class="bg-light text-dark"><%=@customer.name %>さんの会員詳細</span></h5>
     <table>
       <tr>
         <td>会員ID</td>
         <td>
             <%=@customer.id %>
+        </td>
+    　</tr>
+      <tr>
+        <td>ニックネーム</td>
+        <td>
+            <%=@customer.name %>
         </td>
     　</tr>
     　<tr>

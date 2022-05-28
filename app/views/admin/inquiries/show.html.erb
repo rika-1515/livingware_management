@@ -33,7 +33,7 @@
             <td class="font-weight-bold">対応ステータス</td>
             <td>
                 <%= form_with model:@inquiry,url:admin_inquiry_path,method: :patch do |f| %>
-                <%= f.select :support_status, Inquiry.statuses_i18n.invert %>
+                <%= f.select :support_status, Inquiry.support_statuses_i18n.invert %>
                 <%=f.submit '更新',class:"btn btn-success" %>
                 <% end %>
             </td>

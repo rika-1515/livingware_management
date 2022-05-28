@@ -8,7 +8,7 @@ class Admin::InquiriesController < ApplicationController
   def update
     @inquiry = Inquiry.find(params[:id])
     @inquiry.update(inquiry_params)
-    redirect_to admin_inqury_path
+    redirect_to admin_inquiry_path(@inquiry.id)
   end
   
   
