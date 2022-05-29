@@ -64,5 +64,8 @@ gem 'kaminari','~> 1.2.1'
 
 gem 'rails-i18n'
 
-
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 

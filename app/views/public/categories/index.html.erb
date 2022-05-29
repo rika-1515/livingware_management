@@ -2,7 +2,6 @@
     <h5><span class="bg-light text-dark">カテゴリー登録/一覧</span></h5>
         <% if @category.errors.any? %>
             <div class="alert alert-danger">
-                <%= @category.errors.count %>件のエラーが発生しました
                 <ul>
                     <% @category.errors.full_messages.each do |message| %>
                     <li><%= message %></li>

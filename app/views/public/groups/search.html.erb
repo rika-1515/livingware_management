@@ -1,0 +1,26 @@
+<div class="container">
+  <h5><span class="bg-light text-dark">グループ検索</span></h5>
+  <%= form_tag({controller:"groups",action:"search"},method: :get) do %>
+    <span>グループ招待コード</span>
+    <%=text_field_tag :search %>
+    <%=submit_tag "検索",class:"btn btn-success" %>
+  <% end %>
+  
+  <% if params[:search] == nil || ''%>
+  <% elsif params[:search] == ''%>
+  <% else %>
+  <h5><span class="bg-light text-dark">グループ検索結果</span></h5>
+  <table class = table>
+    <thead>
+      <th>グループ名</th>
+      <th>メンバー</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <td><%= @group.name %></td>
+      <td></td>
+      <td></td>
+    </tbody>
+  </table>
+  <% end %>
+</div>

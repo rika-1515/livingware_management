@@ -16,7 +16,13 @@ Rails.application.routes.draw do
   
   scope module: :public do
     resource :customers,only:[:show,:edit,:update]
-    resources :groups,only:[:new,:create,:index,:show,:edit,:update,:destroy]
+    resource :groups,only:[:show,:edit,:update,:destroy] do
+      collection do
+        get :search
+        get :join
+        patch :update
+      end
+    end
     resources :inquiries,only:[:new,:create]
     resources :categories,only:[:index,:create,:edit,:update]
     resources :to_buy_lists,only:[:index] do
