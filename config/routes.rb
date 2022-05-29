@@ -20,7 +20,6 @@ Rails.application.routes.draw do
       collection do
         get :search
         get :join
-        patch :update
       end
     end
     resources :inquiries,only:[:new,:create]

@@ -18,17 +18,12 @@ class Public::GroupsController < ApplicationController
   end
   
   def search
-    if params[:search] == nil || ''
-      render :search
-    elsif params[:search] == ''
-      render :search
-    else
-      @group = Group.where(token: "params[search]")
-    end
-    byebug
+    @group = Group.where(token: params[:token]).first
   end
   
   def join
+    @group = Group.find_by(id: params[:id])
+    
   end
   
   

@@ -2,25 +2,29 @@
   <h5><span class="bg-light text-dark">グループ検索</span></h5>
   <%= form_tag({controller:"groups",action:"search"},method: :get) do %>
     <span>グループ招待コード</span>
-    <%=text_field_tag :search %>
+    <%=text_field_tag :token %>
     <%=submit_tag "検索",class:"btn btn-success" %>
   <% end %>
   
-  <% if params[:search] == nil || ''%>
-  <% elsif params[:search] == ''%>
+  <% if @group %>
+    <h5><span class="bg-light text-dark">グループ検索結果</span></h5>
+      <table class = table>
+        <thead>
+          <th>グループ名</th>
+          <th>メンバー</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <td><%= @group.name %></td>
+          <td>
+            <%= @group.customers.each do |member| %>
+            <%= member.name %><br>
+            <% end %>
+          </td>
+          <td></td>
+        </tbody>
+      </table>
   <% else %>
-  <h5><span class="bg-light text-dark">グループ検索結果</span></h5>
-  <table class = table>
-    <thead>
-      <th>グループ名</th>
-      <th>メンバー</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <td><%= @group.name %></td>
-      <td></td>
-      <td></td>
-    </tbody>
-  </table>
+    <p>一致するグループ招待コードが見つかりませんでした。</p>
   <% end %>
 </div>
