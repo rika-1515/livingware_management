@@ -19,11 +19,16 @@ class Public::GroupsController < ApplicationController
   
   def search
     @group = Group.where(token: params[:token]).first
+    unless params[:commit]
+      @first = true
+    end
   end
   
   def join
-    @group = Group.find_by(id: params[:id])
-    
+    @customer=Customer.find(current_customer.id)
+    byebug
+    @customer.update(group_id_params)
+    redirect_to groups_path
   end
   
   
@@ -36,8 +41,8 @@ class Public::GroupsController < ApplicationController
     params.require(:group).permit(:name)
   end
   
-  # def group_search_params
-  #   params.fetch(:seach,{}).permit(:token)
-  # end
+  def group_id_params
+    params.require(:group).permit(customer_attributes:[:group_id])
+  end
   
 end
