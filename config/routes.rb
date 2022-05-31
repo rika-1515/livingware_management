@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resource :groups,only:[:show,:edit,:update,:destroy] do
       collection do
         get :search
-        get :join
+        patch :join
+        patch :quit
+        patch :out
       end
     end
     resources :inquiries,only:[:new,:create]

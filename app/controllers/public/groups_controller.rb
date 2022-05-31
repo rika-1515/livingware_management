@@ -22,16 +22,31 @@ class Public::GroupsController < ApplicationController
     unless params[:commit]
       @first = true
     end
+    @customer = Customer.find(current_customer.id)
   end
   
   def join
-    @customer=Customer.find(current_customer.id)
-    byebug
+    @customer = Customer.find(current_customer.id)
     @customer.update(group_id_params)
     redirect_to groups_path
   end
   
+  def quit
+    customer = Customer.find(current_customer.id)
+    group = Group.find_by(group_leader_customer_id: customer_id)
+    customer.group_id = group.id
+    customer.save
+    redirect_to groups_path
+  end
   
+  def out
+    customer_id = params[:customer][:customer_id]
+    group = Group.find_by(group_leader_customer_id: customer_id)
+    customer = Customer.find(customer_id)
+    customer.group_id = group.id
+    customer.save
+    redirect_to groups_path
+  end
   
   
   
@@ -42,7 +57,7 @@ class Public::GroupsController < ApplicationController
   end
   
   def group_id_params
-    params.require(:group).permit(customer_attributes:[:group_id])
+    params.require(:customer).permit(:group_id)
   end
   
 end

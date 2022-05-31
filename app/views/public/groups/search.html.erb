@@ -25,6 +25,10 @@
             <td>
               <% if current_customer.group_id == @group.id %>
                 参加中
+                <%= form_with model: @customer,url: quit_groups_path do |f| %>
+                <%= f.hidden_field :group_id, :value => @group.id %>
+                <%= f.submit "脱退",class:"btn btn-success" %>
+                <% end %>
               <% else %>
                 <%= form_with model: @customer,url: join_groups_path do |f| %>
                 <%= f.hidden_field :group_id, :value => @group.id %>
