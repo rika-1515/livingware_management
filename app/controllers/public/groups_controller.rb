@@ -33,7 +33,7 @@ class Public::GroupsController < ApplicationController
   
   def quit
     customer = Customer.find(current_customer.id)
-    group = Group.find_by(group_leader_customer_id: customer_id)
+    group = Group.find_by(group_leader_customer_id: customer.id)
     customer.group_id = group.id
     customer.save
     redirect_to groups_path

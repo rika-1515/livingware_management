@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       collection do
         get :search
         patch :join
-        patch :quit
+        get :quit
         patch :out
       end
     end
