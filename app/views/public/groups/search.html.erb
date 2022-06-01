@@ -1,0 +1,45 @@
+<div class="container">
+  <h5><span class="bg-light text-dark">グループ検索</span></h5>
+  <%= form_tag({controller:"groups",action:"search"},method: :get) do %>
+    <span>グループ招待コード</span>
+    <%=text_field_tag :token %>
+    <%=submit_tag "検索",class:"btn btn-success" %>
+  <% end %>
+  
+  <% unless @first %>
+    <% if @group %>
+      <h5><span class="bg-light text-dark">グループ検索結果</span></h5>
+        <table class = table>
+          <thead>
+            <th>グループ名</th>
+            <th>メンバー</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <td><%= @group.name %></td>
+            <td>
+              <% @group.customers.each do |member| %>
+                <%= member.name %><br>
+              <% end %>
+            </td>
+            <td>
+              <% if current_customer.group_id == @group.id %>
+                参加中
+                <%= form_with model: @customer,url: quit_groups_path do |f| %>
+                <%= f.hidden_field :group_id, :value => @group.id %>
+                <%= f.submit "脱退",class:"btn btn-success" %>
+                <% end %>
+              <% else %>
+                <%= form_with model: @customer,url: join_groups_path do |f| %>
+                <%= f.hidden_field :group_id, :value => @group.id %>
+                <%= f.submit "参加",class:"btn btn-success" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tbody>
+        </table>
+    <% else %>
+      <p>一致するグループ招待コードが見つかりませんでした。</p>
+    <% end %>
+  <% end %>
+</div>

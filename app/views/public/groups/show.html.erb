@@ -1,2 +1,104 @@
-<h1>Public::Groups#show</h1>
-<p>Find me in app/views/public/groups/show.html.erb</p>
+<div class="container">
+  <h5><span class="bg-light text-dark">グループ</span></h5>
+  <span class="font-weight-bold">登録情報</span>
+  <% if @group.group_leader_customer_id == current_customer.id %>
+    <%= link_to "編集する",edit_groups_path,class:"btn btn-success" %><br>
+  
+  <table border="1" style="border-collapse: collapse">
+    <tr>
+      <td class="bg-light">グループ名</td>
+      <td width="300">
+        <% if @group.name.nil? %>
+          グループ名の登録がありません。
+        <% else %>
+          <%=@group.name %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+        <td class="bg-light">グループ招待コード</td>
+        <td>
+          <%=@group.token %>
+        </td>
+    </tr>
+  </table>
+  
+  <%=link_to "グループに参加する",search_groups_path,class:"btn btn-success" %><br>
+  
+  <span class="font-weight-bold">所属メンバー</span>
+    <table border="1" style="border-collapse: collapse">
+      <thead class = "bg-light">
+        <tr>
+          <th>リーダー</th>
+          <th>メンバー</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+            <td>
+              <% if @group.group_leader_customer_id == member.id %>
+                〇
+              <% end %>
+            </td>
+            <td><%=member.name %></td>
+            <td>
+              <% unless @group.group_leader_customer_id == member.id %>
+                <%= form_with model: member,url: out_groups_path do |f| %>
+                <%= f.hidden_field :customer_id, :value => member.id %>
+                <%= f.submit "脱退",class:"btn btn-success",data:{confirm:"本当に脱退させますか？"} %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+      <%= link_to "脱退する",quit_groups_path,class:"btn btn-danger",data:{confirm:"本当に脱退しますか？"} %><br>
+  
+  <table border="1" style="border-collapse: collapse">
+    <tr>
+      <td class="bg-light">グループ名</td>
+      <td width="300">
+        <% if @group.name.nil? %>
+          グループ名の登録がありません。
+        <% else %>
+          <%=@group.name %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+        <td class="bg-light">グループ招待コード</td>
+        <td>
+          <%=@group.token %>
+        </td>
+    </tr>
+  </table>
+  
+  <%=link_to "グループに参加する",search_groups_path,class:"btn btn-success" %><br>
+  
+  <span class="font-weight-bold">所属メンバー</span>
+    <table border="1" style="border-collapse: collapse">
+      <thead class="bg-light">
+        <tr>
+          <th>リーダー</th>
+          <th>メンバー</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+            <td>
+              <% if @group.group_leader_customer_id == member.id %>
+                〇
+              <% end %>
+            </td>
+            <td><%=member.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

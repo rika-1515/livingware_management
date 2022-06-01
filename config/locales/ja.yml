@@ -17,6 +17,12 @@
         inquiry:
           title: タイトル
           body: 内容
+          
+        group: グループ
+      attributes:
+        group:
+          name: グループ名
+      
         
     enums:
       inquiry:

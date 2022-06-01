@@ -23,7 +23,7 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
   
-    private
+  private
   # ストロングパラメータ
   def customer_params
     params.require(:customer).permit(:name,:email)
