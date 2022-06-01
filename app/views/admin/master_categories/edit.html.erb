@@ -1,1 +1,31 @@
-admin master_categories edit
+<div class="container">
+  <h5><span class="bg-light text-dark">カテゴリー編集</span></h5>
+    <% if @category.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+  <%= form_with model: @category,url: admin_master_category_path,local:true do |f| %>
+    <table>
+      <tr>
+        <div class="field">
+          <td>
+            <%= f.label :カテゴリー %>
+          </td>
+          <td>
+            <%= f.text_field :name, placeholder:"キッチン" %>
+          </td>
+        </div>
+      </tr>
+    </table>
+    
+    <div align="right">
+      <%= f.submit '変更内容を保存',class:"btn btn-success" %>
+    </div>
+  <% end %>
+</div>
