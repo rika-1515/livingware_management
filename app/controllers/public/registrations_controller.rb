@@ -16,6 +16,14 @@ class Public::RegistrationsController < Devise::RegistrationsController
     resource.save
     group = Group.create(group_leader_customer_id: resource.id)
     resource.update(group_id: group.id)
+    categories = MasterCategory.all
+    livingwares = MasterLivingware.all
+    categories.each do |c|
+      Category.create(group_id: group.id, name: c.name)
+    end
+    livingwares.each do |l|
+      Livingware.create(category_id: Category.find_by(group_id: group.id, name: MasterCategory.find(l.master_category_id).name).id, group_id: group.id, name: l.name)
+    end
   end
 
   # GET /resource/edit
