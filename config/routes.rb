@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "homes#top"
     resources :master_categories,only:[:index,:create,:edit,:update]
-    resources :master_livingwares,only:[:index,:new,:create,:edit,:update,:destroy]
+    resources :master_livingwares,only:[:index,:create,:edit,:update,:destroy]
     resources :inquiries,only:[:show,:update]
     resources :customers,only:[:index,:show,:edit,:update]
   end

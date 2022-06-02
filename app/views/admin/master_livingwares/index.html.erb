@@ -1,2 +1,66 @@
-<h1>Admin::MasterLivingwares#index</h1>
-<p>Find me in app/views/admin/master_livingwares/index.html.erb</p>
+<div class="container">
+    <h5><span class="bg-light text-dark">生活用品登録/一覧</span></h5>
+      <% if @livingware.errors.any? %>
+        <div class="alert alert-danger">
+          <ul>
+            <% @livingware.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+    <%= form_with model: @livingware,url: admin_master_livingwares_path,local:true do |f| %>
+    <table>
+      <tr>
+        <div class="field">
+          <td>
+            <%= f.label :カテゴリー %>
+          </td>
+          <td>
+            <%=f.collection_select(:master_category_id, @categories, :id, :name) %>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class="field">
+          <td>
+            <%= f.label :生活用品 %>
+          </td>
+          <td>
+            <%= f.text_field :name, placeholder:"洗剤" %>
+          </td>
+        </div>
+      </tr>
+    </table>
+    
+    <div align="right">
+      <%= f.submit '新規登録',class:"btn btn-success" %>
+    </div>
+    <% end %>
+    
+    <table border="1" style="border-collapse: collapse">
+      <thead class="bg-light">
+        <tr>
+          <th>カテゴリー</th>
+          <th>生活用品</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @livingwares.each do |livingware| %>
+      <tbody>
+        <tr>
+          <td>
+            <%=livingware.master_category.name %>
+          </td>
+          <td>
+            <%=livingware.name %>
+          </td>
+          <td>
+            <%=link_to "編集する", edit_admin_master_livingware_path(livingware.id),class:"btn btn-success" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+</div>
