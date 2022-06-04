@@ -9,23 +9,23 @@
     <table>
       <tr>
         <td class = "font-weight-bold">登録情報</td>
-        <td><%= link_to "編集する",edit_customers_path,class:"btn btn-stitch-pink" %></td>
+        <td><%= link_to "編集する",edit_customers_path,class:"btn btn-stitch-light-blue" %></td>
       </tr>
       <tr>
-        <td class="pink">ニックネーム</td>
+        <td class="light-blue">ニックネーム</td>
         <td>
             <%=@customer.name %>
         </td>
       </tr>
       <tr>
-        <td class = "pink">メールアドレス</td>
+        <td class = "light-blue">メールアドレス</td>
         <td>
             <%=@customer.email %>
         </td>
       </tr>
     </table>
     <div>
-    <%= link_to "お問い合わせ",new_inquiry_path,class:"btn btn-stitch-pink" %>
+    <%= link_to "お問い合わせ",new_inquiry_path,class:"btn btn-stitch-light-blue" %>
     </div>
   </div>
 </div>

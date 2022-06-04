@@ -1,18 +1,18 @@
 <div class="container">
   <div class = "row">
-    <%= image_tag 'illustrain02-dinosaur10.png', :size => '110x110' %>
-    <h3><span class="font-weight-bold center">グループ</span></h3>
-    <%= image_tag 'illustrain02-dinosaur07', :size => '110x110' %>
     <%= image_tag 'illustrain02-dinosaur09.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">グループ</span></h3>
+    <%= image_tag 'illustrain02-dinosaur10', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
   </div>
   <div class = "row">
     <span class="font-weight-bold">登録情報</span>
     <% if @group.group_leader_customer_id == current_customer.id %>
-      <%= link_to "編集する",edit_groups_path,class:"btn btn-stitch-light-blue" %><br>
+      <%= link_to "編集する",edit_groups_path,class:"btn btn-stitch-pink" %><br>
     
     <table border="1" style="border-collapse: collapse">
       <tr>
-        <td class="light-blue">グループ名</td>
+        <td class="pink">グループ名</td>
         <td width="300">
           <% if @group.name.nil? %>
             グループ名の登録がありません。
@@ -22,18 +22,18 @@
         </td>
       </tr>
       <tr>
-          <td class="light-blue">グループ招待コード</td>
+          <td class="pink">グループ招待コード</td>
           <td>
             <%=@group.token %>
           </td>
       </tr>
     </table>
     
-    <%=link_to "グループに参加する",search_groups_path,class:"btn-stitch-light-blue" %><br>
+    <%=link_to "グループに参加する",search_groups_path,class:"btn btn-stitch-pink" %><br>
     
     <span class="font-weight-bold">所属メンバー</span>
       <table>
-        <thead class = "light-blue">
+        <thead class = "pink">
           <tr>
             <th>リーダー</th>
             <th>メンバー</th>
@@ -53,7 +53,7 @@
                 <% unless @group.group_leader_customer_id == member.id %>
                   <%= form_with model: member,url: out_groups_path do |f| %>
                   <%= f.hidden_field :customer_id, :value => member.id %>
-                  <%= f.submit "脱退",class:"btn btn-stitch-light-blue",data:{confirm:"本当に脱退させますか？"} %>
+                  <%= f.submit "脱退",class:"btn btn-stitch-pink",data:{confirm:"本当に脱退させますか？"} %>
                   <% end %>
                 <% end %>
               </td>
@@ -66,7 +66,7 @@
     
     <table border="1" style="border-collapse: collapse">
       <tr>
-        <td class="light-blue">グループ名</td>
+        <td class="pink">グループ名</td>
         <td width="300">
           <% if @group.name.nil? %>
             グループ名の登録がありません。
@@ -76,18 +76,18 @@
         </td>
       </tr>
       <tr>
-          <td class="light-blue">グループ招待コード</td>
+          <td class="pink">グループ招待コード</td>
           <td>
             <%=@group.token %>
           </td>
       </tr>
     </table>
     
-    <%=link_to "グループに参加する",search_groups_path,class:"btn-stitch-light-blue" %><br>
+    <%=link_to "グループに参加する",search_groups_path,class:"btn btn-stitch-pink" %><br>
     
     <span class="font-weight-bold">所属メンバー</span>
       <table border="1" style="border-collapse: collapse">
-        <thead class="light-blue">
+        <thead class="pink">
           <tr>
             <th>リーダー</th>
             <th>メンバー</th>
