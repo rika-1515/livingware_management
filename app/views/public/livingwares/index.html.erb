@@ -1,7 +1,7 @@
 <div class="container"> 
   <div class = "row">
     <%= image_tag 'illustrain02-cat19.png', :size => '110x110' %>
-    <h2><span class="font-weight-bold center">生活用品一覧</span></h2>
+    <h3><span class="font-weight-bold center">生活用品一覧</span></h3>
     <%= image_tag 'illustrain02-cat25.png', :size => '110x110' %>
     <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
     <div style="margin-left: auto;">
@@ -11,8 +11,8 @@
     </div>
   </div>
   <div class="row">
-    <table class="table">
-      <thead class="table-light">
+    <table class="table table-striped">
+      <thead class="orange">
         <tr>
           <th></th>
           <th>変更</th>
@@ -29,9 +29,9 @@
           <% @livingwares.each do |livingware| %>
             <%= fb.fields_for "livingware[]", livingware do |f| %>
               <tr>
-                <td>
+                <td class="text-danger font-weight-bold">
                   <% if livingware.to_buy_judge.negative? %>
-                    <p class="text-danger font-weight-bold">購入必要</p>
+                    購入必要
                   <% end %>
                 </td>
                 <td><%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %></td>
@@ -57,7 +57,7 @@
           <% end %>
       </tbody>
     </table>
-    <%= fb.submit '確認画面に進む' ,class:"btn btn-primary" %>
+      <%= fb.submit '確認画面に進む' ,class:"btn-stitch-orange" %>
     <% end %>
   </div> 
 </div>

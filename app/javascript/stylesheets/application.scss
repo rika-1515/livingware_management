@@ -1,10 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-@import '~bootstrap/scss/bootstrap';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-
 * {font-family: 'M PLUS 1p', sans-serif;}
+
+.title{
+  font-size: 25px;
+}
 // body{background-color: #FFEFD5;}
 
 .navbar-light .navbar-toggler-icon {
@@ -17,11 +18,110 @@ details > summary {
 
 .center{
   position: relative;
-  top: 30%;
-  -webkit-transform: translateY(-70%); /* Safari用 */
-  transform: translateY(-70%);
+  top: 40%;
+  -webkit-transform: translateY(-60%); /* Safari用 */
+  transform: translateY(-60%);
 }
 
+.orange{
+  background: #FF570D;
+  color: #FFF;
+}
+
+.btn-stitch-orange {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #FF4500;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FF4500;
+  border: dashed 1px #FFF;
+}
+
+.green{
+  background: #00CC00;
+  color: #FFF;
+}
+
+.btn-stitch-green {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #00BB00;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #00BB00;
+  border: dashed 1px #FFF;
+}
+
+.purple{
+  background: #CC33FF;
+  color: #FFF;
+}
+
+.btn-stitch-purple {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #CC33FF;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #CC33FF;
+  border: dashed 1px #FFF;
+}
+
+.pink{
+  background: #FF33CC;
+  color: #FFF;
+}
+
+.btn-stitch-pink {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #FF33CC;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FF33CC;
+  border: dashed 1px #FFF;
+}
+
+.light-blue{
+  background: #33CCFF;
+  color: #FFF;
+}
+
+.btn-stitch-light-blue {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #33CCFF;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #33CCFF;
+  border: dashed 1px #FFF;
+}
+
+.btn-stitch-green:hover,
+.btn-stitch-orange:hover,
+.btn-stitch-purple:hover,
+.btn-stitch-pink:hover
+.btn-stitch-light-blue:hover{
+  border: dotted 1px #FFF;
+  color: #FFF;
+}
+
+.table-margin1 {
+  margin-top: 50px;
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+}
+
+.table-margin2 {
+  border-collapse: separate;
+  border-spacing: 60px 10px;
+}
 
 // footer{background-color:#43FF6B;
 // }

@@ -1,7 +1,12 @@
-<div class="container">
-    <h5><span class="bg-light text-dark">カテゴリー登録/一覧</span></h5>
+<div class = "container">
+  <div class = "row">
+    <%= image_tag 'illustrain02-bird04.png', :size => '110x110' %>
+    <h3><span class = "font-weight-bold center">カテゴリー登録/一覧</span></h3>
+    <%= image_tag 'illustrain02-bird20.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-bird19.png', :size => '110x110' %>
+  </div>
       <% if @category.errors.any? %>
-        <div class="alert alert-danger">
+        <div class = "alert alert-danger">
           <ul>
             <% @category.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -9,44 +14,47 @@
           </ul>
         </div>
       <% end %>
-    
-    <%= form_with model: @category,url: categories_path,local:true do |f| %>
-    <table>
-      <tr>
-        <div class="field">
-          <td>
-            <%= f.label :カテゴリー %>
-          </td>
-          <td>
-            <%= f.text_field :name, placeholder:"キッチン" %>
-          </td>
-        </div>
-      </tr>
-    </table>
-    
-    <div align="right">
-      <%= f.submit '新規登録',class:"btn btn-success" %>
-    </div>
-    <% end %>
-    
-    <table border="1" style="border-collapse: collapse">
-      <thead class="bg-light">
+  
+  <div class = "row">
+    <div class = "col-6">
+      <%= form_with model: @category,url: categories_path,local:true do |f| %>
+      <table class = "table-margin1">
         <tr>
-          <th>カテゴリー</th>
-          <th></th>
-        </tr>
-      </thead>
-      <% @categories.each do |categories| %>
-      <tbody>
-        <tr>
+          <div class = "field">
+            <td>
+              <%= f.label :カテゴリー %>
+            </td>
+            <td>
+              <%= f.text_field :name, placeholder:"キッチン" %>
+            </td>
+          </div>
           <td>
-            <%=categories.name %>
-          </td>
-          <td>
-            <%=link_to "編集する", edit_category_path(categories.id),class:"btn btn-success" %>
+            <%= f.submit '新規登録',class:"btn-stitch-purple" %>
           </td>
         </tr>
       <% end %>
-      </tbody>
-    </table>
+      </table>
+    </div>
+    <div class = "col-6">
+      <table class ="table-margin2">
+        <thead class = "purple" align = "center">
+          <tr>
+            <th colspan = "2">カテゴリー</th>
+          </tr>
+        </thead>
+        <% @categories.each do |categories| %>
+        <tbody>
+          <tr>
+            <td>
+              <%=categories.name %>
+            </td>
+            <td>
+              <%=link_to "編集する", edit_category_path(categories.id),class:"btn btn-stitch-purple" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
