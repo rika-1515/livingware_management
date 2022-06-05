@@ -6,26 +6,27 @@
     <%= image_tag 'illustrain02-penguin01.png', :size => '110x110' %>
   </div>
   <div class = "row">
-    <table>
+    <table class = "Speech-bubble-light-blue">
       <tr>
         <td class = "font-weight-bold">登録情報</td>
-        <td><%= link_to "編集する",edit_customers_path,class:"btn btn-stitch-light-blue" %></td>
+        <td align = "right"><%= link_to "編集する",edit_customers_path,class:"btn btn-stitch-light-blue" %></td>
       </tr>
-      <tr>
-        <td class="light-blue">ニックネーム</td>
-        <td>
+      <tr class = "Speech-bubble-tr">
+        <td class="Speech-bubble-th-light-blue Speech-bubble-th-light-blue:after">ニックネーム</td>
+        <td class = "gray">
             <%=@customer.name %>
         </td>
       </tr>
-      <tr>
-        <td class = "light-blue">メールアドレス</td>
-        <td>
+      <tr class = "Speech-bubble-tr">
+        <td class="Speech-bubble-th-light-blue Speech-bubble-th-light-blue:after">メールアドレス</td>
+        <td class = "gray">
             <%=@customer.email %>
         </td>
       </tr>
     </table>
-    <div>
-    <%= link_to "お問い合わせ",new_inquiry_path,class:"btn btn-stitch-light-blue" %>
-    </div>
   </div>
+  <div class = "row">
+    <%= link_to "お問い合わせ",new_inquiry_path,class:"btn btn-stitch-light-blue" %>
+  </div>
+  
 </div>
