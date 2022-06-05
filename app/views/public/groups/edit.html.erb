@@ -1,32 +1,41 @@
 <div class="container">
-    <h5><span class="bg-light text-dark">グループ名編集</span></h5>
-        <% if @group.errors.any? %>
-            <div class="alert alert-danger">
-                <ul>
-                    <% @group.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                    <% end %>
-                </ul>
-            </div>
-        <% end %>
-    
-    <%= form_with model: @group,url: groups_path,local:true do |f| %>
-    
-    <table>
-        <tr>
-            <div class="field">
-                <td>
-                    <%= f.label :グループ名 %>
-                </td>
-                <td>
-                    <%= f.text_field :name %>※ネット上に公開されるグループ名です
-                </td>
-            </div>
-        </tr>
-    </table>
-    
-    <div align="right">
-      <%= f.submit '登録',class:"btn btn-success" %>
-    </div>
+  <div class = "row">
+    <%= image_tag 'illustrain02-dinosaur09.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">グループ名編集</span></h3>
+    <%= image_tag 'illustrain02-dinosaur10', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
+  </div>
+  <div class = "row">
+    <% if @group.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @group.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
+  </div>
+  <div class = "row">
+    <%= form_with model: @group,url: groups_path,local:true do |f| %>
+      <table class = "table-margin1">
+        <tr>
+          <div class="field">
+            <td>
+              <%= f.label :グループ名 %>
+            </td>
+            <td>
+              <%= f.text_field :name %>※ネット上に公開されるグループ名です
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= f.submit '登録',class:"btn btn-stitch-pink1" %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
 </div>

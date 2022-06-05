@@ -1,9 +1,13 @@
-<div class="container">  
-    <div class="row">
-        <h5><span class="bg-light text-dark">会員一覧</span></h5>
-
-    <table class="table">
-        <thead class="table-light">
+<div class="container">
+  <div class = "row">
+    <%= image_tag 'illustrain02-hatyuruiryoseirui06.png', :size => '110x110' %>
+    <h3><span class = "font-weight-bold center">会員一覧</span></h3>
+    <%= image_tag 'illustrain02-penguin03.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-penguin01.png', :size => '110x110' %>
+  </div>
+  <div class = "row">
+    <table class="table table-striped">
+        <thead class="light-blue">
           <tr>
             <th>会員ID</th>
             <th>会員</th>
@@ -11,7 +15,6 @@
             <th>ステータス</th>
           </tr>
         </thead>
-    
         <tbody>
           <% @customers.each do |customers| %>
             <tr>

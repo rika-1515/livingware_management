@@ -5,6 +5,7 @@
     <%= image_tag 'illustrain02-bird20.png', :size => '110x110' %>
     <%= image_tag 'illustrain02-bird19.png', :size => '110x110' %>
   </div>
+  <div class = "row">
       <% if @category.errors.any? %>
         <div class = "alert alert-danger">
           <ul>
@@ -14,7 +15,7 @@
           </ul>
         </div>
       <% end %>
-  
+  </div>
   <div class = "row">
     <div class = "col-6">
       <%= form_with model: @category,url: categories_path,local:true do |f| %>

@@ -1,5 +1,9 @@
-<div class="container">  
-  <h5><span class="bg-light text-dark">生活用品編集</span></h5>
+<div class="container">
+  <div class = "row">
+    <%= image_tag 'illustrain02-cat19.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">生活用品編集</span></h3>
+    <%= image_tag 'illustrain02-cat25.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
     <% if @livingware.errors.any? %>
       <div class="alert alert-danger">
         <%= @livingware.errors.count %>件のエラーが発生しました
@@ -10,29 +14,35 @@
         </ul>
       </div>
     <% end %>
-    
-  <%= form_with model: @livingware,url:admin_master_livingware_path do |f| %>
-  <table align="center">
-    <tr>
-      <td>
-        <label for="inputGenre_id">カテゴリー</label>
-      </td>
-      <td>
-        <div><%=f.collection_select(:master_category_id, @categories, :id, :name) %></div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label for="inputName">生活用品</label>
-      </td>
-      <td>
-        <div><%=f.text_field:name,autofocus:true,placeholder:"生活用品名", style: "width:100%" %></div>
-      </td>
-    </tr>
-  </table>
-    
-  <div align="center">
-    <%=f.submit '変更を保存',class:"btn btn-success" %>
-  <% end %>
+  </div>
+  <div class = "row">
+    <div class = "offset-1">
+      <%= form_with model: @livingware,url:admin_master_livingware_path do |f| %>
+        <table align="center">
+          <tr>
+            <td width = 100>
+              <label for="inputGenre_id">カテゴリー</label>
+            </td>
+            <td>
+              <div><%=f.collection_select(:master_category_id, @categories, :id, :name) %></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="inputName">生活用品</label>
+            </td>
+            <td>
+              <div><%=f.text_field:name,autofocus:true,placeholder:"生活用品名", style: "width:100%" %></div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%=f.submit '変更を保存',class:"btn btn-stitch-orange" %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
   </div>
 </div>

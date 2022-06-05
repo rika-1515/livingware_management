@@ -1,5 +1,11 @@
 <div class = "container">
-    <h5><span class="bg-light text-dark"><%=@customer.name %>さんの会員情報編集</span></h5>
+  <div class = "row">
+    <%= image_tag 'illustrain02-hatyuruiryoseirui06.png', :size => '110x110' %>
+    <h3><span class = "font-weight-bold center">会員情報編集</span></h3>
+    <%= image_tag 'illustrain02-penguin03.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-penguin01.png', :size => '110x110' %>
+  </div>
+  <div class = "row">
     <% if @customer.errors.any? %>
       <%= @custormer.errors.count %>件のエラーが発生しました
       <ul>
@@ -8,7 +14,8 @@
       <% end %>
       </ul>
     <% end %>
-
+  </div>
+  <div class = "row">
     <%= form_with model: @customer,url:admin_customer_path do |f| %>
     <table>
       <tr>
@@ -25,7 +32,7 @@
       </tr>
       <tr>
           <div class="field">
-            <td>
+            <td width = 150>
             <%= f.label :メールアドレス %>
             </td>
             <td>
@@ -44,12 +51,14 @@
           <%= f.label :is_active, "退会", {value: :false, style: "display: inline-block;"} %>
         </td>
       </tr>
+      <tr>
+        <div class="actions">
+          <td colspan = "2" align = "center">
+            <%= f.submit "変更を保存",class:"btn btn-stitch-light-blue" %>
+          </td>
+        </div>
+      </tr>
     </table>
-    
-
-  <div class="actions">
-    <%= f.submit "変更を保存",class:"btn btn-success" %>
-  </div>
     <% end %>
-
+  </div>
 </div>
