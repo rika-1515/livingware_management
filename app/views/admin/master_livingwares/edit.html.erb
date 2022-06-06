@@ -4,19 +4,18 @@
     <h3><span class="font-weight-bold center">生活用品編集</span></h3>
     <%= image_tag 'illustrain02-cat25.png', :size => '110x110' %>
     <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
-    <% if @livingware.errors.any? %>
+  </div>
+  <div class = "row">
+    <div class = "offset-1">
+      <% if @livingware.errors.any? %>
       <div class="alert alert-danger">
-        <%= @livingware.errors.count %>件のエラーが発生しました
         <ul>
           <% @livingware.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
       </div>
-    <% end %>
-  </div>
-  <div class = "row">
-    <div class = "offset-1">
+      <% end %>
       <%= form_with model: @livingware,url:admin_master_livingware_path do |f| %>
         <table align="center">
           <tr>

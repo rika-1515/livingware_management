@@ -14,7 +14,7 @@
           <th>生活用品</th>
           <th>保管数</th>
           <th>基準数</th>
-          <th>購入数</th>
+          <th>不足数</th>
           <th>備考</th>
         </tr>
       </thead>
@@ -29,7 +29,7 @@
                 <%=livingware.category.name %>
                </td>
               <td>
-                <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
+                <%=link_to livingware_path(livingware.id) do %>
                 <%=livingware.name %>
                 <% end %>
               </td>

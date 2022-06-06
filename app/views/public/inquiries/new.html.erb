@@ -5,8 +5,7 @@
     <%= image_tag 'illustrain02-dinosaur10', :size => '110x110' %>
     <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
   </div>
-  <div class = "row">
-    <% if @inquiry.errors.any? %>
+  <% if @inquiry.errors.any? %>
       <div class="alert alert-danger">
         <%= @inquiry.errors.count %>件のエラーが発生しました
           <ul>
@@ -15,8 +14,7 @@
             <% end %>
           </ul>
       </div>
-    <% end %>
-  </div>
+  <% end %>
   <div class = "row">
     <p>お問い合わせありがとうございます。<br>
        回答は会員登録いただいておりますメールアドレスに送信いたします。<br>

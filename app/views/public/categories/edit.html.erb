@@ -5,8 +5,7 @@
     <%= image_tag 'illustrain02-bird20.png', :size => '110x110' %>
     <%= image_tag 'illustrain02-bird19.png', :size => '110x110' %>
   </div>
-  <div class = "row">
-    <% if @category.errors.any? %>
+  <% if @category.errors.any? %>
       <div class="alert alert-danger">
         <ul>
           <% @category.errors.full_messages.each do |message| %>
@@ -14,8 +13,7 @@
           <% end %>
         </ul>
       </div>
-    <% end %>
-  </div>
+  <% end %>
   <%= form_with model: @category,url: category_path,local:true do |f| %>
     <table class = "table-margin1">
       <tr>

@@ -1,4 +1,4 @@
-# Seirin　(サブタイトル→生活用品保管数管理サイト)
+# LivsLisM♪
 
 ## サイト概要
 ### サイトテーマ
@@ -45,4 +45,3 @@ https://docs.google.com/spreadsheets/d/14xc0AQvUriXYGFIpSJrNyIetwp1bJoaz/edit?us
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です
