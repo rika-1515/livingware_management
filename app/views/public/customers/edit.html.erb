@@ -6,6 +6,18 @@
     <%= image_tag 'illustrain02-penguin01.png', :size => '110x110' %>
   </div>
   <div class = "row">
+    <% if @customer.errors.any? %>
+      <div class="alert alert-danger">
+        <%= @customer.errors.count %>件未入力箇所があります。入力してください。
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div class = "row">
     <%= form_with model: @customer,url:customers_path do |f| %>
       <table>
         <tr>

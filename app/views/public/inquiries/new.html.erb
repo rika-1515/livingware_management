@@ -7,7 +7,7 @@
   </div>
   <% if @inquiry.errors.any? %>
       <div class="alert alert-danger">
-        <%= @inquiry.errors.count %>件のエラーが発生しました
+        <%= @inquiry.errors.count %>件未入力箇所があります。入力してください。
           <ul>
             <% @inquiry.errors.full_messages.each do |message| %>
             <li><%= message %></li>

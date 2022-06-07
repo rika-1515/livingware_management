@@ -9,7 +9,6 @@
   <div class = "row">
     <% if @livingware.errors.any? %>
       <div class="alert alert-danger"  align="center">
-        <%= @livingware.errors.count %>件のエラーが発生しました
         <ul>
           <% @livingware.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -17,6 +16,8 @@
         </ul>
       </div>
     <% end %>
+  </div>
+  <div class = "row">
     <%= form_with model: @livingware,url:livingware_path do |f| %>
       <table align="center">
         <tr>
