@@ -1,0 +1,79 @@
+<div class="container">
+  <div class = "row">
+    <%= image_tag 'illustrain02-cat19.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">生活用品登録/一覧</span></h3>
+    <%= image_tag 'illustrain02-cat25.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
+  </div>
+  <div class="row">
+      <% if @livingware.errors.any? %>
+        <div class="alert alert-danger">
+          <ul>
+            <% @livingware.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+  </div>
+  <div class="row">
+    <div class = "col-6">
+      <%= form_with model: @livingware,url: admin_master_livingwares_path,local:true do |f| %>
+        <table>
+          <tr>
+            <div class="field">
+              <td>
+                <%= f.label :カテゴリー %>
+              </td>
+              <td>
+                <%=f.collection_select(:master_category_id, @categories, :id, :name) %>
+              </td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+              <td width = 100>
+                <%= f.label :生活用品 %>
+              </td>
+              <td>
+                <%= f.text_field :name, placeholder:"洗剤" %>
+              </td>
+            </div>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%= f.submit '新規登録',class:"btn btn-stitch-orange" %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+    <div class = "col-6">
+      <table class = "table margin-none">
+        <thead class="orange">
+          <tr>
+            <th>カテゴリー</th>
+            <th>生活用品</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @livingwares.each do |livingware| %>
+        <tbody>
+          <tr>
+            <td>
+              <%=livingware.master_category.name %>
+            </td>
+            <td>
+              <%=livingware.name %>
+            </td>
+            <td>
+              <%=link_to "編集する", edit_admin_master_livingware_path(livingware.id),class:"btn btn-stitch-orange" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

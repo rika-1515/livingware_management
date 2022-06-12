@@ -1,16 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LivingwareManagement</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LivsLisM</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="border-bottom navbar-dark bg">
+      <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+          <% if admin_signed_in? %>
+            <h2><%= link_to 'LivsLisM♪', admin_root_path, class:"navbar-brand text-dark font-weight-bold title" %></h2>
+          <% else %>
+            <h2><%= link_to 'LivsLisM♪', root_path, class:"navbar-brand text-dark font-weight-bold title" %></h2>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class = "collapse navbar-collapse" id="navbarNav">
+          　<ul class="navbar-nav ml-auto">
+              <% if customer_signed_in? %>
+                <li class="nav-item  active mx-3">
+                  <%= link_to "買い物リスト", to_buy_lists_path,class:"text-dark font-weight-bold" %>
+                </li>
+                <li class="nav-item mx-3">
+                  <%= link_to "生活用品", livingwares_path,class:"text-dark font-weight-bold" %>
+                </li>
+                <li class="nav-item mx-3">
+                  <%= link_to "カテゴリー", categories_path,class:"text-dark font-weight-bold" %>
+                </li>
+                <details class="nav-item mx-3 font-weight-bold">
+                  <summary>ユーザー</summary>
+                  <li>
+                    <%= link_to "マイページ", customers_path,class:"text-dark" %>
+                  </li>
+                  <li>
+                    <%= link_to "グループ", groups_path,class:"text-dark" %>
+                  </li>
+                </details>
+                <li class="nav-item mx-3">
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class:"text-dark font-weight-bold" %>
+                </li>
+              <% elsif admin_signed_in? %>
+                <li class="nav-item mx-3">
+                  <%= link_to "会員一覧", admin_customers_path,class:"text-dark font-weight-bold" %>
+                </li>
+                <li class="nav-item mx-3">
+                  <%= link_to "カテゴリーマスタ", admin_master_categories_path,class:"text-dark font-weight-bold" %>
+                </li>
+                <li class="nav-item mx-3">
+                  <%= link_to "生活用品マスタ", admin_master_livingwares_path,class:"text-dark font-weight-bold" %>
+                </li>
+                <li class="nav-item mx-3">
+                  <%= link_to "お問い合わせ一覧", admin_root_path,class:"text-dark font-weight-bold" %>
+                </li>
+                <li class="nav-item mx-3">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class:"text-dark font-weight-bold" %>
+                </li>
+              <% else %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
     <%= yield %>
+    <footer>
+      <div class="container">
+        <div class="row no-gutters">
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

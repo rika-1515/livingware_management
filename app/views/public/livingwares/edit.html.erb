@@ -1,0 +1,79 @@
+<div class="container">
+  <div class = "row">
+    <%= image_tag 'illustrain02-cat19.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">生活用品編集</span></h3>
+    <%= image_tag 'illustrain02-cat25.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
+    
+  </div>
+  <div class = "row">
+    <% if @livingware.errors.any? %>
+      <div class="alert alert-danger"  align="center">
+        <ul>
+          <% @livingware.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div class = "row">
+    <%= form_with model: @livingware,url:livingware_path do |f| %>
+      <table align="center">
+        <tr>
+          <td>
+            <label for="inputGenre_id">カテゴリー</label>
+          </td>
+          <td>
+            <div><%=f.collection_select(:category_id, @categories, :id, :name) %></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="inputName">生活用品</label>
+          </td>
+          <td>
+            <div><%=f.text_field:name,autofocus:true,placeholder:"生活用品名", style: "width:100%" %></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="inputPrice">保管数</label>
+          </td>
+            <td>
+             <div><%=f.select :amount, *[0..100], style: "width:25%" %></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="inputPrice">基準数</label>
+          </td>
+          <td>
+            <div><%=f.select :amount_standard, *[0..100], style: "width:25%" %></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="inputIntroduction">備考</label>
+          </td>
+          <td>
+            <div><%=f.text_area:note,autofocus:true,placeholder:"保管場所等、補足で記述したいことがあれば記述してください", style: "width:100%" %></div>
+          </td>
+        </tr>
+        <tr>
+          <td width = "150">
+            <label for="inputImage">生活用品の画像</label>
+          </td>
+          <td>
+            <div><%=f.file_field:livingware_image,placeholder:"生活用品画像",accept:"image/*" %></div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan = "2" align = "center">
+            <%=f.submit '変更を保存',class:"btn btn-stitch-orange" %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
