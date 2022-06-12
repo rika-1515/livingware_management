@@ -6,11 +6,12 @@
     <%= image_tag 'illustrain02-sentaku09.png', :size => '110x110' %>
   </div>
   <div class = "row">
+
+  </div>
+  <div class = "row">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
       <!--<%= render partial: 'public/shared/flash_message' %>-->
-  </div>
-  <div class = "row">
     <table>
       <tr>
         <div class="field">
@@ -33,7 +34,7 @@
           </td>
         </div>
       </tr>
-      
+
       <tr>
         <div class="field">
           <td>
