@@ -1,9 +1,9 @@
 class Admin::MasterLivingwaresController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     @livingware = MasterLivingware.new
-    @livingwares = MasterLivingware.all.order(:category_id)
+    @livingwares = MasterLivingware.all.order(:master_category_id)
     @categories = MasterCategory.all
   end
 
@@ -18,12 +18,12 @@ class Admin::MasterLivingwaresController < ApplicationController
       render :index
     end
   end
-  
+
   def edit
     @livingware = MasterLivingware.find(params[:id])
     @categories = MasterCategory.all
   end
-  
+
   def update
     @livingware = MasterLivingware.find(params[:id])
     if @livingware.update(master_livingware_params)
@@ -33,12 +33,12 @@ class Admin::MasterLivingwaresController < ApplicationController
       render :edit
     end
   end
-  
-  
+
+
   private
 
   def master_livingware_params
     params.require(:master_livingware).permit(:master_category_id,:admin_id,:name)
   end
-  
+
 end
