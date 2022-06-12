@@ -1,15 +1,16 @@
-<div class="container"> 
+<div class="container">
   <div class = "row">
-    <h5><span class="bg-light text-dark">生活用品一覧</span></h5>
-    <div style="margin-left: auto;">
-      <%=link_to new_livingware_path,class:"d-flex justify-content-end" do %>
-        <i class="fas fa-plus-circle"></i>
-      <% end %>
+    <%= image_tag 'illustrain02-cat19.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">生活用品一覧</span></h3>
+    <%= image_tag 'illustrain02-cat25.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
+    <div style = "margin: auto;">
+      <%=link_to "生活用品を登録する",new_livingware_path,class:"btn btn-stitch-orange" %>
     </div>
   </div>
   <div class="row">
-    <table class="table">
-      <thead class="table-light">
+    <table class="table table-striped">
+      <thead class="orange">
         <tr>
           <th></th>
           <th>変更</th>
@@ -26,9 +27,9 @@
           <% @livingwares.each do |livingware| %>
             <%= fb.fields_for "livingware[]", livingware do |f| %>
               <tr>
-                <td>
+                <td class="text-danger font-weight-bold">
                   <% if livingware.to_buy_judge.negative? %>
-                    <p class="text-danger font-weight-bold">購入必要</p>
+                    購入必要
                   <% end %>
                 </td>
                 <td><%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %></td>
@@ -36,8 +37,8 @@
                   <%=livingware.category.name %>
                 </td>
                 <td>
-                  <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
-                  <%=livingware.name %>
+                  <%=link_to livingware_path(livingware.id) do %>
+                    <%=livingware.name %>
                   <% end %>
                 </td>
                 <td>
@@ -54,7 +55,7 @@
           <% end %>
       </tbody>
     </table>
-    <%= fb.submit '確認画面に進む' ,class:"btn btn-primary" %>
+      <%= fb.submit '確認画面に進む' ,class:"btn-stitch-orange" %>
     <% end %>
   </div> 
 </div>

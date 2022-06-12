@@ -1,4 +1,259 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// body{background-color: blue;}
+* {font-family: 'M PLUS 1p', sans-serif;}
+
+.title{
+  font-size: 25px;
+}
+// body{background-color: #FFEFD5;}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+details > summary {
+  list-style: none;
+}
+
+.top-margin {
+  margin: 50px;
+}
+
+.top-body-margin {
+  margin: 20px 0;
+}
+
+.center{
+  position: relative;
+  top: 40%;
+  -webkit-transform: translateY(-60%); /* Safari用 */
+  transform: translateY(-60%);
+}
+
+.picture{
+  line-height:230px;
+  text-align:center;
+}
+
+.orange{
+  background: #FF570D;
+  color: #FFF;
+}
+
+.btn-stitch-orange {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #FF4500;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FF4500;
+  border: dashed 1px #FFF;
+  margin: 10px;
+}
+
+.green{
+  background: #00CC00;
+  color: #FFF;
+}
+
+.btn-stitch-green {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #00BB00;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #00BB00;
+  border: dashed 1px #FFF;
+  margin: 10px;
+}
+
+.purple{
+  background: #CC33FF;
+  color: #FFF;
+}
+
+.btn-stitch-purple {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #CC33FF;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #CC33FF;
+  border: dashed 1px #FFF;
+}
+
+.pink{
+  background: #FA4094;
+  color: #FFF;
+}
+
+.btn-stitch-pink1 {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #FA4094;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FA4094;
+  border: dashed 1px #FFF;
+  margin: 5px;
+}
+
+.btn-stitch-pink2 {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #FA4094;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FA4094;
+  border: dashed 1px #FFF;
+  margin: 0px;
+}
+
+.light-blue{
+  background: #2DC8FF;
+  color: #FFF;
+}
+
+.btn-stitch-light-blue {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #2DC8FF;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #2DC8FF;
+  border: dashed 1px #FFF;
+  margin: 10px;
+}
+
+.btn-stitch-red1{
+ display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #FF2121;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FF2121;
+  border: dashed 1px #FFF;
+  margin: 10px;
+}
+
+.btn-stitch-red2{
+ display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #FF2121;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FF2121;
+  border: dashed 1px #FFF;
+  margin: 10px;
+}
+
+.btn-stitch-green:hover,
+.btn-stitch-orange:hover,
+.btn-stitch-purple:hover,
+.btn-stitch-pink1:hover,
+.btn-stitch-pink2:hover,
+.btn-stitch-light-blue:hover,
+.btn-stitch-red1:hover,
+.btn-stitch-red2:hover{
+  border: dotted 1px #FFF;
+  color: #FFF;
+}
+
+.table-margin1 {
+  margin-top: 50px;
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+}
+
+.table-margin2 {
+  border-collapse: separate;
+  border-spacing: 60px 10px;
+}
+
+.Speech-bubble-pink{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Speech-bubble-tr{
+  border-bottom: solid 2px white;
+}
+
+.Speech-bubble-tr:last{
+  border-bottom: none;
+}
+
+.Speech-bubble-th-pink{
+  position: relative;
+  text-align: left;
+  background-color: #FA4094;
+  width: 30%;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Speech-bubble-th-pink:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #FA4094;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.Speech-bubble-light-blue{
+  width: 40%;
+  border-collapse: collapse;
+}
+
+.Speech-bubble-th-light-blue{
+  position: relative;
+  text-align: left;
+  background-color: #2DC8FF;
+  width: 20%;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Speech-bubble-th-light-blue:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #2DC8FF;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.gray{
+  text-align: left;
+  width: 30%;
+  text-align: center;
+  background-color: #eee;
+}
+
+.margin-none{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// footer{background-color:#43FF6B;
+// }

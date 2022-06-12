@@ -1,20 +1,42 @@
-<div class="container">  
-  <h5><span class="bg-light text-dark">管理者ログイン</span></h5>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :メールアドレス %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :パスワード %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-  
-    <div class="actions">
-      <%= f.submit "ログイン",class:"btn btn-primary" %>
-    </div>
-  <% end %>
-<!--<%= render "admin/shared/links" %>-->
+<div class="container">
+  <div class = "row">
+    <%= image_tag 'illustrain02-bird12.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">管理者ログイン</span></h3>
+    <%= image_tag 'illustrain02-tropical03.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-bird10.png', :size => '110x110' %>
+  </div>
+  <div class = "row">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <table>
+        <tr>
+          <div class="field">
+            <td width = 150>
+              <%= f.label :メールアドレス %>
+            </td>
+            <td>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <td>
+              <%= f.label :パスワード %>
+            </td>
+            <td>
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div class="actions">
+            <td colspan = "2" align = "center">
+              <%= f.submit "ログイン",class:"btn btn-stitch-green" %>
+            </td>
+          </div>
+        </tr>
+      </table>
+    <% end %>
+  <!--<%= render "admin/shared/links" %>-->
+  </div>
 </div>

@@ -1,11 +1,14 @@
 <div class="container"> 
   <div class = "row">
-    <h5><span class="bg-light text-dark">生活用品変更一覧</span></h5>
+    <%= image_tag 'illustrain02-dog03.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">生活用品変更一覧</span></h3>
+    <%= image_tag 'illustrain02-dog01.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dog18.png', :size => '110x110' %>
   </div>
   <div class="row">
-    <%= form_with url:to_buy_lists_path, method: :patch do |fb| %>
-      <table class="table">
-        <thead class="table-light">
+    <table class="table table-striped">
+      <%= form_with url:to_buy_lists_path, method: :patch do |fb| %>
+        <thead class="green">
           <tr>
             <th>カテゴリー</th>
             <th>生活用品</th>
@@ -14,8 +17,7 @@
             <th>備考</th>
           </tr>
         </thead>
-    
-        <tbody class="table-borderless">
+        <tbody>
           <% @livingwares.each do |livingware| %>
             <%= fb.fields_for "livingware[]", livingware do |f| %>
               <tr>
@@ -40,12 +42,8 @@
             <% end %>
           <% end %>
         </tbody>
-      </table>
-      
-      
-      <div align="center">
-        <%= fb.submit '変更を確定する' ,class:"btn btn-success" %>
-      </div>
-    <% end %>
+    </table>
+      <%= fb.submit '変更を確定する' ,class:"btn-stitch-green" %>
+      <% end %>
   </div> 
 </div>

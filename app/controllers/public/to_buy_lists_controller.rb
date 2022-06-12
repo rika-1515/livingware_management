@@ -1,4 +1,6 @@
 class Public::ToBuyListsController < ApplicationController
+  before_action :authenticate_customer!, except: [:top]
+  
   def index
     @livingwares = current_customer.group.livingwares.order(:category_id)
     @categories = current_customer.group.categories

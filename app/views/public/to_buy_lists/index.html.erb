@@ -1,21 +1,23 @@
 <div class="container"> 
   <div class = "row">
-    <h5><span class="bg-light text-dark">買い物リスト</span></h5>
+    <%= image_tag 'illustrain02-dog03.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">買い物リスト</span></h3>
+    <%= image_tag 'illustrain02-dog01.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dog18.png', :size => '110x110' %>
   </div>
   <div class="row">
-    <table class="table">
-      <thead class="table-warning">
+    <table class="table table-striped">
+      <thead class="green">
         <tr>
           <th>変更</th>
           <th>カテゴリー</th>
           <th>生活用品</th>
           <th>保管数</th>
           <th>基準数</th>
-          <th>購入数</th>
+          <th>不足数</th>
           <th>備考</th>
         </tr>
       </thead>
-  
       <tbody>
         <%= form_with url:log_to_buy_lists_path,method: :post do |fb| %>
           <% @livingwares.each do |livingware| %>
@@ -27,7 +29,7 @@
                 <%=livingware.category.name %>
                </td>
               <td>
-                <%=link_to livingware_path(livingware.id),class:"text-dark" do %>
+                <%=link_to livingware_path(livingware.id) do %>
                 <%=livingware.name %>
                 <% end %>
               </td>
@@ -49,7 +51,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= fb.submit '確認画面に進む' ,class:"btn btn-primary" %>
+    <%= fb.submit '確認画面に進む' ,class:"btn-stitch-green" %>
     <% end %>
   </div> 
 </div>

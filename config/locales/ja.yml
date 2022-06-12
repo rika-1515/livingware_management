@@ -1,29 +1,47 @@
-  ja:
-    activerecord:
-      models:
-        customer: 会員
-      attributes:
-        item:
-          name: ニックネーム
-          email: メールアドレス
-          
-        category: カテゴリー
-      attributes:
-        category:
-          name: カテゴリー名
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
         
-        inquiry: お問い合わせ
-      attributes:
-        inquiry:
-          title: タイトル
-          body: 内容
-          
-        group: グループ
-      attributes:
-        group:
-          name: グループ名
+    models:
+      category: カテゴリー
+    attributes:
+      category:
+        name: カテゴリー名
+
+      group: グループ
+    attributes:
+      group:
+        name: グループ名
+
+      inquiry: お問い合わせ
+    attributes:
+      inquiry:
+        title: タイトル
+        body: 内容
+
+      customer: 会員
+    attributes:
+      customer:
+        email: メールアドレス
+        name: ニックネーム
+
+      livingware: 生活用品
+    attributes:
+      livingware:
+        name: 生活用品
+
+      master_category: カテゴリー
+    attributes:
+      master_category:
+        name: カテゴリー名
       
-        
+      master_livingware: 生活用品
+    attributes:
+      master_livingware:
+        name: 生活用品
+
     enums:
       inquiry:
         support_status:

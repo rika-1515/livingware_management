@@ -1,4 +1,6 @@
 class Public::CategoriesController < ApplicationController
+  before_action :authenticate_customer!, except: [:top]
+  
   def index
     @category = Category.new
     @categories = current_customer.group.categories

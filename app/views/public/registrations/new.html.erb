@@ -1,10 +1,16 @@
 <div class = "container">
-  <h5><span class="bg-light text-dark">新規会員登録</h5>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
-    <%= render partial: 'public/shared/flash_message' %>
-  
+  <div class = "row">
+    <%= image_tag 'illustrain02-sentaku10.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">新規会員登録</span></h3>
+    <%= image_tag 'illustrain02-sentaku08.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-sentaku09.png', :size => '110x110' %>
+  </div>
+  <div class = "row">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+      <!--<%= render partial: 'public/shared/flash_message' %>-->
+  </div>
+  <div class = "row">
     <table>
       <tr>
         <div class="field">
@@ -51,14 +57,18 @@
           </td>
         </div>
       </tr>
+      <tr>
+        <td></td>
+        <div class="actions">
+          <td><%= f.submit "新規会員登録",class:"btn btn-stitch-light-blue" %></td>
+        </div>
+      </tr>
     </table>
-    
-    <div class="actions">
-      <%= f.submit "新規会員登録",class:"btn btn-success" %>
-    </div>
-  <% end %>
-
-  <h5><span class="bg-light text-dark">既に登録済みの方</h5>
-  <%=link_to "こちら",new_customer_session_path %>　からログインしてください。
-
+    <% end %>
+  </div>
+  <div class = "row">
+    <h5><span class="font-weight-bold center">既に登録済みの方は
+    <%=link_to "こちら",new_customer_session_path,class:"btn btn-stitch-pink1" %> からログインしてください
+    </span></h5>
+  </div>
 </div>

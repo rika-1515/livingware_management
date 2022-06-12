@@ -1,42 +1,58 @@
-<div class="container">  
-    <h5><span class="bg-light text-dark"><%=@customer.name %>さんの会員詳細</span></h5>
+<div class="container">
+  <div class = "row">
+    <%= image_tag 'illustrain02-hatyuruiryoseirui06.png', :size => '110x110' %>
+    <h3><span class = "font-weight-bold center"><%=@customer.name %>さんの会員詳細</span></h3>
+    <%= image_tag 'illustrain02-penguin03.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-penguin01.png', :size => '110x110' %>
+  </div>
+  <div class = "row">
     <table>
       <tr>
         <td>会員ID</td>
         <td>
-            <%=@customer.id %>
+          <%=@customer.id %>
         </td>
     　</tr>
       <tr>
         <td>ニックネーム</td>
         <td>
-            <%=@customer.name %>
+          <%=@customer.name %>
         </td>
     　</tr>
     　<tr>
-          <td>メールアドレス</td>
-          <td>
-            <%=@customer.email %>
-          </td>
+        <td width = "150">メールアドレス</td>
+        <td>
+          <%=@customer.email %>
+        </td>
       </tr>
       <tr>
-          <td>所属グループ/ID</td>
-          <td>
-            
-          </td>
+        <td>所属グループ/ID</td>
+        <td>
+          <% if @customer.group.name.nil? %>
+            -
+          <% else %>
+            <%=@customer.group.name %>
+          <% end %>
+          /
+          <%=@customer.group.token %>
+        </td>
       </tr>
       <tr>
-          <td>退会ステータス</td>
-          <td>
-            <% if @customer.is_active? %>
+        <td>退会ステータス</td>
+        <td>
+          <% if @customer.is_active? %>
             <span class="text-success font-weight-bold">有効</span>
-            <% else %>
+          <% else %>
             <span class="text-muted font-weight-bold">退会</span>
-            <% end %>
-          </td>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan = "2" align = "center">
+          <%=link_to "編集する", edit_admin_customer_path(@customer.id),class:"btn btn-stitch-light-blue" %>
+        </td>
       </tr>
     </table>
-  
-  <%=link_to "編集する", edit_admin_customer_path(@customer.id),class:"btn btn-success" %>
+  </div>
 </div>
 

@@ -1,6 +1,11 @@
 <div class="container">
-  <h5><span class="bg-light text-dark">カテゴリー編集</span></h5>
-    <% if @category.errors.any? %>
+  <div class = "row">
+    <%= image_tag 'illustrain02-bird04.png', :size => '110x110' %>
+    <h3><span class = "font-weight-bold center">カテゴリー変更</span></h3>
+    <%= image_tag 'illustrain02-bird20.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-bird19.png', :size => '110x110' %>
+  </div>
+  <% if @category.errors.any? %>
       <div class="alert alert-danger">
         <ul>
           <% @category.errors.full_messages.each do |message| %>
@@ -8,10 +13,9 @@
           <% end %>
         </ul>
       </div>
-    <% end %>
-    
+  <% end %>
   <%= form_with model: @category,url: admin_master_category_path,local:true do |f| %>
-    <table>
+    <table class = "table-margin1">
       <tr>
         <div class="field">
           <td>
@@ -21,11 +25,10 @@
             <%= f.text_field :name, placeholder:"キッチン" %>
           </td>
         </div>
+        <td>
+          <%= f.submit '変更内容を保存',class:"btn btn-stitch-purple" %>
+        </td>
       </tr>
     </table>
-    
-    <div align="right">
-      <%= f.submit '変更内容を保存',class:"btn btn-success" %>
-    </div>
   <% end %>
 </div>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   root to:'public/homes#top'
-  get '/guide'=>'public/homes#guide'
+  # get '/guide'=>'public/homes#guide'
   
   get '/customers/quit'=>'public/customers#quit'
   patch '/customer/out'=>'public/customers#out',as: 'out_customer'

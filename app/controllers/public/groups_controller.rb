@@ -1,4 +1,6 @@
 class Public::GroupsController < ApplicationController
+  before_action :authenticate_customer!, except: [:top]
+  
   def edit
     @group = Group.find(current_customer.group_id)
   end
