@@ -12,17 +12,17 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-
-    resource.save
-    group = Group.create(group_leader_customer_id: resource.id)
-    resource.update(group_id: group.id)
-    categories = MasterCategory.all
-    livingwares = MasterLivingware.all
-    categories.each do |c|
-      Category.create(group_id: group.id, name: c.name)
-    end
-    livingwares.each do |l|
-      Livingware.create(category_id: Category.find_by(group_id: group.id, name: MasterCategory.find(l.master_category_id).name).id, group_id: group.id, name: l.name)
+    if resource.save
+      group = Group.create(group_leader_customer_id: resource.id)
+      resource.update(group_id: group.id)
+      categories = MasterCategory.all
+      livingwares = MasterLivingware.all
+      categories.each do |c|
+        Category.create(group_id: group.id, name: c.name)
+      end
+      livingwares.each do |l|
+        Livingware.create(category_id: Category.find_by(group_id: group.id, name: MasterCategory.find(l.master_category_id).name).id, group_id: group.id, name: l.name)
+      end
     end
   end
 
@@ -51,7 +51,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
     protected
-  
+
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_up_params
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:group_id])
@@ -71,7 +71,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
+
     def after_sign_in_path_for(resource)
       categories_path
     end
@@ -79,5 +79,5 @@ class Public::RegistrationsController < Devise::RegistrationsController
     def after_sign_out_path_for(resource)
       root_path
     end
-  
+
 end
