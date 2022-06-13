@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>LivsLisM</title>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -69,13 +70,10 @@
         </div>
       </nav>
     </header>
-    
+
     <%= yield %>
-    <footer>
-      <div class="container">
-        <div class="row no-gutters">
-        </div>
-      </div>
+    <footer class = "border-top navbar-dark bg footer-margin">
+      <p class = "font-weight-bold">LivsLisM♪</p>
     </footer>
   </body>
 </html>

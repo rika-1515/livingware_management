@@ -6,7 +6,7 @@
     <%= image_tag 'illustrain02-bird19.png', :size => '110x110' %>
   </div>
   <div class = "row">
-    <div class = "col-6">
+    <div class = "col-md-6 bottom-margin">
         <% if @category.errors.any? %>
         <div class="alert alert-danger">
           <ul>
@@ -34,8 +34,8 @@
         </table>
       <% end %>
     </div>
-    <div class = "col-4">
-      <table class ="table margin-none table-margin2">
+    <div class = "col-md-4">
+      <table class ="table margin-none">
         <thead class = "purple" align = "center">
           <tr>
             <th colspan = "2">カテゴリー</th>
