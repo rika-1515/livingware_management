@@ -7,58 +7,60 @@
   </div>
   <div class = "row">
     <% if @customer.errors.any? %>
-      <%= @custormer.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @customer.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="alert alert-danger">
+        <%= @customer.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
   </div>
   <div class = "row">
     <%= form_with model: @customer,url:admin_customer_path do |f| %>
-    <table>
-      <tr>
-        <td>会員ID</td>
-        <td><%=@customer.id %></td>
-      </tr>
-      <tr>
-          <div class="field">
-            <td><%= f.label :ニックネーム %></td>
-            <td>
-            <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"太郎" %>
-            </td>
-          </div>
-      </tr>
-      <tr>
-          <div class="field">
-            <td width = 150>
-            <%= f.label :メールアドレス %>
-            </td>
-            <td>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </td>
-          </div>
-      </tr>
-      <tr>
-        <td>
-          <label for="inputIs_active">会員ステータス</label>
-        </td>
-        <td>
-          <%= f.radio_button :is_active, :true, checked: true %>
-          <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
-          <%= f.radio_button :is_active, :false %>
-          <%= f.label :is_active, "退会", {value: :false, style: "display: inline-block;"} %>
-        </td>
-      </tr>
-      <tr>
-        <div class="actions">
-          <td colspan = "2" align = "center">
-            <%= f.submit "変更を保存",class:"btn btn-stitch-light-blue" %>
+      <table>
+        <tr>
+          <td>会員ID</td>
+          <td><%=@customer.id %></td>
+        </tr>
+        <tr>
+            <div class="field">
+              <td><%= f.label :ニックネーム %></td>
+              <td>
+              <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"太郎" %>
+              </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="field">
+              <td width = 150>
+              <%= f.label :メールアドレス %>
+              </td>
+              <td>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </td>
+            </div>
+        </tr>
+        <tr>
+          <td>
+            <label for="inputIs_active">会員ステータス</label>
           </td>
-        </div>
-      </tr>
-    </table>
+          <td>
+            <%= f.radio_button :is_active, :true, checked: true %>
+            <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "退会", {value: :false, style: "display: inline-block;"} %>
+          </td>
+        </tr>
+        <tr>
+          <div class="actions">
+            <td colspan = "2" align = "center">
+              <%= f.submit "変更を保存",class:"btn btn-stitch-light-blue" %>
+            </td>
+          </div>
+        </tr>
+      </table>
     <% end %>
   </div>
 </div>
