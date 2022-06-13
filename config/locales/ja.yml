@@ -3,48 +3,30 @@ ja:
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
-        
-    models:
-      category: カテゴリー
     attributes:
       category:
         name: カテゴリー名
-
-      group: グループ
-    attributes:
       group:
-        name: グループ名
-
-      inquiry: お問い合わせ
-    attributes:
+          name: グループ名
       inquiry:
         title: タイトル
         body: 内容
-
-      customer: 会員
-    attributes:
       customer:
         email: メールアドレス
         name: ニックネーム
-
-      livingware: 生活用品
-    attributes:
+        password: パスワード
       livingware:
         name: 生活用品
-
-      master_category: カテゴリー
-    attributes:
+        category: カテゴリー名
       master_category:
         name: カテゴリー名
-      
-      master_livingware: 生活用品
-    attributes:
       master_livingware:
         name: 生活用品
+        master_category: カテゴリー名
 
-    enums:
-      inquiry:
-        support_status:
-          waiting: "未対応"
-          working: "対応中"
-          completed: "対応済"
+  enums:
+    inquiry:
+      support_status:
+        waiting: "未対応"
+        working: "対応中"
+        completed: "対応済"

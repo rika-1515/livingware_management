@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container">
   <div class = "row">
     <%= image_tag 'illustrain02-dog03.png', :size => '110x110' %>
     <h3><span class="font-weight-bold center">買い物リスト</span></h3>
@@ -6,52 +6,52 @@
     <%= image_tag 'illustrain02-dog18.png', :size => '110x110' %>
   </div>
   <div class="row">
-    <table class="table table-striped">
-      <thead class="green">
-        <tr>
-          <th>変更</th>
-          <th>カテゴリー</th>
-          <th>生活用品</th>
-          <th>保管数</th>
-          <th>基準数</th>
-          <th>不足数</th>
-          <th>備考</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= form_with url:log_to_buy_lists_path,method: :post do |fb| %>
+    <%= form_with url:log_to_buy_lists_path,method: :post do |fb| %>
+      <table class="table table-striped">
+        <thead class="green">
+          <tr>
+            <th>変更</th>
+            <th>カテゴリー</th>
+            <th>生活用品</th>
+            <th>保管数</th>
+            <th>基準数</th>
+            <th>不足数</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
           <% @livingwares.each do |livingware| %>
             <%= fb.fields_for "livingware[]", livingware do |f| %>
-            <% if livingware.to_buy_judge.negative? %>
-            <tr>
-              <td><%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %></td>
-              <td>
-                <%=livingware.category.name %>
-               </td>
-              <td>
-                <%=link_to livingware_path(livingware.id) do %>
-                <%=livingware.name %>
-                <% end %>
-              </td>
-              <td>
-                <%=livingware.amount.to_s(:delimited) %>
-              </td>
-              <td>
-                <%=livingware.amount_standard.to_s(:delimited) %>
-              </td>
-              <td>
-                <%= f.select :buy_amount, *[0..100], :selected => livingware.buy_amount, style: "width:25%" %>
-              </td>
-              <td>
-                <%=livingware.note %>
-              </td>
-            </tr>
+              <% if livingware.to_buy_judge.negative? %>
+                <tr>
+                  <td><%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %></td>
+                  <td>
+                    <%=livingware.category.name %>
+                   </td>
+                  <td>
+                    <%=link_to livingware_path(livingware.id) do %>
+                    <%=livingware.name %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%=livingware.amount.to_s(:delimited) %>
+                  </td>
+                  <td>
+                    <%=livingware.amount_standard.to_s(:delimited) %>
+                  </td>
+                  <td>
+                    <%= f.select :buy_amount, *[0..100], :selected => livingware.buy_amount, style: "width:25%" %>
+                  </td>
+                  <td>
+                    <%=livingware.note %>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </tbody>
-    </table>
-    <%= fb.submit '確認画面に進む' ,class:"btn-stitch-green" %>
+        </tbody>
+      </table>
+      <%= fb.submit '確認画面に進む' ,class:"btn-stitch-gray" ,id:"submit-btn" ,disabled:true %>
     <% end %>
-  </div> 
+  </div>
 </div>
