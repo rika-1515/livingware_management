@@ -17,10 +17,10 @@
       <% end %>
   </div>
   <div class = "row">
-    <div class = "col-6">
+    <div class = "col-md-6 bottom-margin">
       <%= form_with model: @category,url: categories_path,local:true do |f| %>
       <table class = "table-margin1">
-        <tr> 
+        <tr>
           <div class = "field">
             <td>
               <%= f.label :カテゴリー %>
@@ -36,8 +36,8 @@
       <% end %>
       </table>
     </div>
-    <div class = "col-6">
-      <table class ="table-margin2">
+    <div class = "col-md-4">
+      <table class ="table margin-none">
         <thead class = "purple" align = "center">
           <tr>
             <th colspan = "2">カテゴリー</th>

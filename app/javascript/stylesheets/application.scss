@@ -1,6 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+@media screen and (max-width:768px){
+  body{
+    width:100%;
+    display:block;
+  }
+}
+
 * {font-family: 'M PLUS 1p', sans-serif;}
 
 .title{
@@ -22,6 +29,26 @@ details > summary {
 
 .top-body-margin {
   margin: 20px 0;
+}
+
+.margin-none{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.bottom-margin{
+  margin-bottom: 50px;
+}
+
+.footer-margin{
+  margin: 200px auto 0px;
+}
+
+footer {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  padding: 20px 0;
 }
 
 .center{
@@ -249,11 +276,3 @@ details > summary {
   text-align: center;
   background-color: #eee;
 }
-
-.margin-none{
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-// footer{background-color:#43FF6B;
-// }
