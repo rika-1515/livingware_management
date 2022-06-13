@@ -9,21 +9,20 @@
     </div>
   </div>
   <div class="row">
-    <table class="table table-striped">
-      <thead class="orange">
-        <tr>
-          <th></th>
-          <th>変更</th>
-          <th>カテゴリー</th>
-          <th>生活用品</th>
-          <th>保管数</th>
-          <th>基準数</th>
-          <th>備考</th>
-        </tr>
-      </thead>
-  
-      <tbody class="table-borderless">
-        <%= form_with url:log_livingwares_path,method: :post do |fb| %>
+    <%= form_with url:log_livingwares_path,method: :post do |fb| %>
+      <table class="table table-striped">
+        <thead class="orange">
+          <tr>
+            <th></th>
+            <th>変更</th>
+            <th>カテゴリー</th>
+            <th>生活用品</th>
+            <th>保管数</th>
+            <th>基準数</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody class="table-borderless">
           <% @livingwares.each do |livingware| %>
             <%= fb.fields_for "livingware[]", livingware do |f| %>
               <tr>
@@ -53,9 +52,9 @@
               </tr>
             <% end %>
           <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
       <%= fb.submit '確認画面に進む' ,class:"btn-stitch-orange" %>
     <% end %>
-  </div> 
+  </div>
 </div>
