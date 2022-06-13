@@ -6,15 +6,15 @@
     <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
   </div>
   <div class = "row">
-    <table class = "table-margin1">
-      <%= form_tag({controller:"groups",action:"search"},method: :get) do %>
+    <%= form_tag({controller:"groups",action:"search"},method: :get) do %>
+      <table class = "table-margin1">
         <tr>
           <td><span>グループ招待コード</span></td>
           <td><%=text_field_tag :token %></td>
           <td><%=submit_tag "検索",class:"btn btn-stitch-pink1" %></td>
         </tr>
-      <% end %>
-    </table>
+      </table>
+    <% end %>
   </div>
   <div class = "row">
     <div class = "col-6 table-margin1">
