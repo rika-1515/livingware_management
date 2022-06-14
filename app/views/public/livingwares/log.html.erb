@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container">
   <div class = "row">
     <%= image_tag 'illustrain02-cat19.png', :size => '110x110' %>
     <h3><span class="font-weight-bold center">生活用品変更一覧</span></h3>
@@ -17,7 +17,7 @@
           <th>備考</th>
         </tr>
       </thead>
-  
+
       <tbody class="table-borderless">
         <% @livingwares.each do |livingware| %>
           <%= fb.fields_for "livingware[]", livingware do |f| %>
@@ -34,6 +34,7 @@
                 <%=livingware.amount.to_s(:delimited) %>
               </td>
               <td>
+                <%= f.hidden_field :amount_standard, value: livingware.amount_standard %>
                 <%=livingware.amount_standard.to_s(:delimited) %>
               </td>
               <td>
@@ -44,7 +45,7 @@
         <% end %>
       </tbody>
     </table>
-    
+
     <div align="center">
     <%= fb.submit '変更を確定する' ,class:"btn btn-stitch-orange" %>
     </div>

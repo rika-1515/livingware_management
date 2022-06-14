@@ -27,10 +27,10 @@
           　<ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
                 <li class="nav-item  active mx-3">
-                  <%= link_to "買い物リスト", to_buy_lists_path,class:"text-dark font-weight-bold" %>
+                  <%= link_to "買い物リスト", to_buy_lists_path,class:"text-dark font-weight-bold", data: {"turbolinks" => false} %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%= link_to "生活用品", livingwares_path,class:"text-dark font-weight-bold" %>
+                  <%= link_to "生活用品", livingwares_path,class:"text-dark font-weight-bold", data: {"turbolinks" => false} %>
                 </li>
                 <li class="nav-item mx-3">
                   <%= link_to "カテゴリー", categories_path,class:"text-dark font-weight-bold" %>
