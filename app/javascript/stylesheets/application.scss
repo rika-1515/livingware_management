@@ -41,7 +41,6 @@ details > summary {
 }
 
 .footer-margin{
-  margin: 200px auto 0px;
 }
 
 footer {
@@ -49,6 +48,16 @@ footer {
   height: 60px;
   text-align: center;
   padding: 20px 0;
+  margin: 200px auto 0px;
+}
+
+.footer-text{
+
+}
+
+.td-margin {
+  border-collapse: separate;
+  border-spacing: 10px;
 }
 
 .center{
@@ -288,3 +297,4 @@ footer {
   text-align: center;
   background-color: #eee;
 }
+
