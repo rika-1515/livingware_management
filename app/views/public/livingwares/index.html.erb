@@ -44,7 +44,7 @@
                   <%= f.select :amount, *[0..100] %>
                 </td>
                 <td>
-                  <%=livingware.amount_standard.to_s(:delimited) %>
+                  <%= f.select :amount_standard, *[0..100] %>
                 </td>
                 <td>
                   <%=livingware.note %>
