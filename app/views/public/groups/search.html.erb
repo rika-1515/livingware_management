@@ -10,14 +10,14 @@
       <table class = "table-margin1">
         <tr>
           <td><span>グループ招待コード</span></td>
-          <td><%=text_field_tag :token %></td>
+          <td><%=text_field_tag :token, style: "width:90%" %></td>
           <td><%=submit_tag "検索",class:"btn btn-stitch-pink1" %></td>
         </tr>
       </table>
     <% end %>
   </div>
   <div class = "row">
-    <div class = "col-6 table-margin1">
+    <div class = "col-md-6 table-margin1">
       <% unless @first %>
         <% if @group %>
           <h4><span class="font-weight-bold center">グループ検索結果</span></h4>
@@ -53,6 +53,8 @@
           <p>一致するグループ招待コードが見つかりませんでした</p>
         <% end %>
       <% end %>
+    </div>
+    <div class = "offset-md-1 col-md-5">
     </div>
   </div>
 </div>
