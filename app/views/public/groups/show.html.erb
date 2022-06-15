@@ -1,20 +1,20 @@
 <div class="container">
   <div class = "row">
-    <%= image_tag 'illustrain02-dinosaur09.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dinosaur09.png', width: '11%', height: '11%' %>
     <h3><span class="font-weight-bold center">グループ</span></h3>
-    <%= image_tag 'illustrain02-dinosaur10.png', :size => '110x110' %>
-    <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dinosaur10.png', width: '11%', height: '11%' %>
+    <%= image_tag 'illustrain02-dinosaur07.png', width: '11%', height: '11%' %>
   </div>
   <div class = "row">
     <% if @group.group_leader_customer_id == current_customer.id %>
-      <div class = "col-md-5 bottom-margin">
+      <div class = "col-md-5 top-body-margin bottom-margin">
+        <div class = "row">
+          <div class = "col-md-5 font-weight-bold top-body-margin">登録情報</div>
+          <div class = "col-md-7" align = "right">
+            <div><%= link_to "編集する",edit_groups_path, class:"btn btn-stitch-pink1" %></div>
+          </div>
+        </div>
         <table class = "Speech-bubble-pink">
-          <tr class = "Speech-bubble-tr">
-            <td><span class="font-weight-bold">登録情報</span></td>
-            <td align = "right">
-              <%= link_to "編集する",edit_groups_path, class:"btn btn-stitch-pink1" %>
-            </td>
-          </tr>
           <tr class = "Speech-bubble-tr">
             <td class="Speech-bubble-th-pink Speech-bubble-th-pink:after">グループ名</td>
             <td width="300" class = "gray">
@@ -67,14 +67,14 @@
         <%=link_to "グループに参加する",search_groups_path,class:"btn btn-stitch-pink1" %>
       </div>
     <% else %>
-      <div class = "col-md-5 bottom-margin">
-        <table class = "Speech-bubble-pink" cellpadding="15">
-          <tr class = "Speech-bubble-tr">
-            <td><span class="font-weight-bold">登録情報</span></td>
-            <td align = "right">
-              <%= link_to "脱退する",quit_groups_path,class:"btn btn-stitch-red2",data:{confirm:"本当に脱退しますか？"} %>
-            </td>
-          </tr>
+      <div class = "col-md-5 top-body-margin bottom-margin">
+        <div class = "row">
+          <div class = "col-md-5 font-weight-bold top-body-margin">登録情報</div>
+          <div class = "col-md-7" align = "right">
+            <div><%= link_to "脱退する",quit_groups_path,class:"btn btn-stitch-red2",data:{confirm:"本当に脱退しますか？"} %></div>
+          </div>
+        </div>
+        <table class = "Speech-bubble-pink" cellpadding="20">
           <tr class = "Speech-bubble-tr">
             <td class="Speech-bubble-th-pink Speech-bubble-th-pink:after">グループ名</td>
             <td width="300" class = "gray">
