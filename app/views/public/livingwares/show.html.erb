@@ -46,6 +46,7 @@
           <%=link_to "編集する", edit_livingware_path(@livingware.id),class:"btn btn-stitch-orange" %>
           <%=link_to "削除する", livingware_path(@livingware.id),method: :delete, data: {confirm: "本当に削除しますか？"},class:"btn btn-stitch-red1" %>
         </div>
+        <div><%=link_to "生活用品一覧に戻る", livingwares_path,class:"btn btn-stitch-orange" %></div>
     </div>
   </div>
 </div>

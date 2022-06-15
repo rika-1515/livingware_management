@@ -16,7 +16,7 @@
                 <%= f.label :ニックネーム %>
               </td>
               <td>
-                <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"太郎" %>
+                <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"太郎", style: "width:90%" %>
                 ※ネット上に公開される名前です
               </td>
             </div>
@@ -27,7 +27,7 @@
                 <%= f.label :メールアドレス %>
               </td>
               <td>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:90%" %>
               </td>
             </div>
           </tr>
@@ -41,7 +41,7 @@
                 <% end %>
               </td>
               <td>
-                <%= f.password_field :password, autocomplete: "new-password" %>
+                <%= f.password_field :password, autocomplete: "new-password", style: "width:90%" %>
               </td>
             </div>
           </tr>
@@ -51,7 +51,7 @@
                 <%= f.label :パスワード %>(確認用)
               </td>
               <td>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width:90%" %>
               </td>
             </div>
           </tr>
