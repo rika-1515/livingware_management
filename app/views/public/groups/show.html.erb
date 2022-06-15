@@ -1,9 +1,9 @@
 <div class="container">
   <div class = "row">
-    <%= image_tag 'illustrain02-dinosaur09.png', width: '11%', height: '11%' %>
+    <%= image_tag 'illustrain02-dinosaur09.png', :size => '110x110' %>
     <h3><span class="font-weight-bold center">グループ</span></h3>
-    <%= image_tag 'illustrain02-dinosaur10.png', width: '11%', height: '11%' %>
-    <%= image_tag 'illustrain02-dinosaur07.png', width: '11%', height: '11%' %>
+    <%= image_tag 'illustrain02-dinosaur10.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
   </div>
   <div class = "row">
     <% if @group.group_leader_customer_id == current_customer.id %>
@@ -14,7 +14,7 @@
             <div><%= link_to "編集する",edit_groups_path, class:"btn btn-stitch-pink1" %></div>
           </div>
         </div>
-        <table class = "Speech-bubble-pink">
+        <table class = "Speech-bubble-pink cellpadding="20"">
           <tr class = "Speech-bubble-tr">
             <td class="Speech-bubble-th-pink Speech-bubble-th-pink:after">グループ名</td>
             <td width="300" class = "gray">
