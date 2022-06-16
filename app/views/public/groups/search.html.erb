@@ -10,7 +10,7 @@
       <table class = "table-margin1">
         <tr>
           <td><span>グループ招待コード</span></td>
-          <td><%=text_field_tag :token, style: "width:90%" %></td>
+          <td><%=text_field_tag :token, nil, style: "width:100%" %></td>
           <td><%=submit_tag "検索",class:"btn btn-stitch-pink1" %></td>
         </tr>
       </table>
@@ -27,7 +27,7 @@
                 <th>メンバー</th>
                 <th></th>
               </thead>
-              <tbody>
+              <tbody style="width: 100%;">
                 <td><%= @group.name %></td>
                 <td>
                   <% @group.customers.each do |member| %>
