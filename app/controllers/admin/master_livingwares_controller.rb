@@ -34,6 +34,12 @@ class Admin::MasterLivingwaresController < ApplicationController
     end
   end
 
+  def destroy
+    @livingware = MasterLivingware.find(params[:id])
+    @livingware.destroy
+    redirect_to admin_master_livingwares_path
+  end
+
 
   private
 
