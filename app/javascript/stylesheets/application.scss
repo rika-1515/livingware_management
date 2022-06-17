@@ -201,6 +201,18 @@ footer {
   margin: 10px;
 }
 
+.btn-stitch-red3{
+ display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #FF2121;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #FF2121;
+  border: dashed 1px #FFF;
+  margin-left: 15px;
+}
+
 .btn-stitch-green:hover,
 .btn-stitch-orange:hover,
 .btn-stitch-purple:hover,
@@ -208,7 +220,8 @@ footer {
 .btn-stitch-pink2:hover,
 .btn-stitch-light-blue:hover,
 .btn-stitch-red1:hover,
-.btn-stitch-red2:hover{
+.btn-stitch-red2:hover,
+.btn-stitch-red3:hover{
   border: dotted 1px #FFF;
   color: #FFF;
 }

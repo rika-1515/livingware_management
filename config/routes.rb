@@ -2,18 +2,18 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "homes#top"
-    resources :master_categories,only:[:index,:create,:edit,:update]
+    resources :master_categories,only:[:index,:create,:edit,:update,:destroy]
     resources :master_livingwares,only:[:index,:create,:edit,:update,:destroy]
     resources :inquiries,only:[:show,:update]
     resources :customers,only:[:index,:show,:edit,:update]
   end
-  
+
   root to:'public/homes#top'
   # get '/guide'=>'public/homes#guide'
-  
+
   get '/customers/quit'=>'public/customers#quit'
   patch '/customer/out'=>'public/customers#out',as: 'out_customer'
-  
+
   scope module: :public do
     resource :customers,only:[:show,:edit,:update]
     resource :groups,only:[:show,:edit,:update,:destroy] do
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       end
     end
     resources :inquiries,only:[:new,:create]
-    resources :categories,only:[:index,:create,:edit,:update]
+    resources :categories,only:[:index,:create,:edit,:update,:destroy]
     resources :to_buy_lists,only:[:index] do
       collection do
         post :log
@@ -39,12 +39,12 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   devise_for :customers, controllers: {
     sessions: 'public/sessions',
     registrations: 'public/registrations' # signup view -> app/controllers/public/registrations_controller.rb
   }
-  
+
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
     registrations: 'admin/registrations'

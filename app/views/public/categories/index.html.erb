@@ -36,8 +36,8 @@
       <% end %>
       </table>
     </div>
-    <div class = "col-md-4">
-      <table class ="table margin-none">
+    <div class = "col-md-6">
+      <table class ="table margin-none" cellpadding="20">
         <thead class = "purple" align = "center">
           <tr>
             <th colspan = "2">カテゴリー</th>
@@ -49,8 +49,9 @@
             <td>
               <%=categories.name %>
             </td>
-            <td>
+            <td align = "right">
               <%=link_to "編集する", edit_category_path(categories.id),class:"btn btn-stitch-purple" %>
+              <%=link_to "削除する",category_path(categories.id),method: :delete, data: {confirm: "本当に削除しますか？"},class:"btn btn-stitch-red3" %>
             </td>
           </tr>
         <% end %>
