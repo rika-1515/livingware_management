@@ -1,9 +1,12 @@
 <div class="container">
   <div class = "row">
-      <%= image_tag 'illustrain02-dinosaur09.png', :size => '110x110' %>
-      <h3><span class="font-weight-bold center">お問い合わせ</span></h3>
-      <%= image_tag 'illustrain02-dinosaur10.png', :size => '110x110' %>
-      <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dinosaur09.png', :size => '110x110' %>
+    <h3><span class="font-weight-bold center">お問い合わせ</span></h3>
+    <%= image_tag 'illustrain02-dinosaur10.png', :size => '110x110' %>
+    <%= image_tag 'illustrain02-dinosaur07.png', :size => '110x110' %>
+  </div>
+  <div class = "row">
+    <div class = "col-md-10">
       <% if @inquiry.errors.any? %>
         <div class="alert alert-danger">
           <%= @inquiry.errors.count %>件未入力箇所があります。入力してください。
@@ -14,9 +17,6 @@
             </ul>
         </div>
       <% end %>
-  </div>
-  <div class = "row">
-    <div class = "col-md-10">
       <p>お問い合わせありがとうございます。<br>
          回答は会員登録いただいておりますメールアドレスに送信いたします。<br>
          もし異なるメールアドレスに送信をご希望される場合は内容にメールアドレスの記載をお願いいたします。</p>
