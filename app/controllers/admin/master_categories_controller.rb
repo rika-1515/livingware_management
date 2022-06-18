@@ -1,6 +1,6 @@
 class Admin::MasterCategoriesController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     @category = MasterCategory.new
     @categories = MasterCategory.all
@@ -20,7 +20,7 @@ class Admin::MasterCategoriesController < ApplicationController
   def edit
     @category = MasterCategory.find(params[:id])
   end
-  
+
   def update
     @category = MasterCategory.find(params[:id])
     if @category.update(master_category_params)
@@ -29,12 +29,18 @@ class Admin::MasterCategoriesController < ApplicationController
       render :edit
     end
   end
-  
-  
+
+  def destroy
+    @category = MasterCategory.find(params[:id])
+    @category.destroy
+    redirect_to admin_master_categories_path
+  end
+
+
   private
   # ストロングパラメータ
   def master_category_params
     params.require(:master_category).permit(:admin_id,:name)
   end
-  
+
 end

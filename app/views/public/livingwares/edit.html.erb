@@ -4,7 +4,7 @@
     <h3><span class="font-weight-bold center">生活用品編集</span></h3>
     <%= image_tag 'illustrain02-cat25.png', :size => '110x110' %>
     <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
-    
+
   </div>
   <div class = "row">
     <% if @livingware.errors.any? %>
@@ -33,7 +33,7 @@
             <label for="inputName">生活用品</label>
           </td>
           <td>
-            <div><%=f.text_field:name,autofocus:true,placeholder:"生活用品名", style: "width:100%" %></div>
+            <div><%=f.text_field:name,autofocus:true,placeholder:"生活用品名", style: "width:90%" %></div>
           </td>
         </tr>
         <tr>
@@ -57,7 +57,7 @@
             <label for="inputIntroduction">備考</label>
           </td>
           <td>
-            <div><%=f.text_area:note,autofocus:true,placeholder:"保管場所等、補足で記述したいことがあれば記述してください", style: "width:100%" %></div>
+            <div><%=f.text_area:note,autofocus:true,placeholder:"保管場所等、補足で記述したいことがあれば記述してください", style: "width:90%" %></div>
           </td>
         </tr>
         <tr>
