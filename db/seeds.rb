@@ -8,5 +8,5 @@
 
 Admin.create!(
     email: 'test@test.com',
-    password: '^LivsLisM.admin-24252921^',
+    password: '^LivsLisM.admin-2425292175^',
     )

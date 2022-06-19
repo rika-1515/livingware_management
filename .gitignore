@@ -40,4 +40,4 @@ yarn-debug.log*
 .yarn-integrity
 /app/assets/images
 /.env
-/db/seed.rb
+/db/seeds.rb
