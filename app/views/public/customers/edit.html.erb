@@ -11,7 +11,7 @@
         <%= @customer.errors.count %>件未入力箇所があります。入力してください。
         <ul>
           <% @customer.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+            <li><%= message %></li>
           <% end %>
         </ul>
       </div>

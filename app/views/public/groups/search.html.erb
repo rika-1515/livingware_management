@@ -21,34 +21,34 @@
       <% unless @first %>
         <% if @group %>
           <h4><span class="font-weight-bold center">グループ検索結果</span></h4>
-            <table class = "table">
-              <thead class = "pink">
-                <th>グループ名</th>
-                <th>メンバー</th>
-                <th></th>
-              </thead>
-              <tbody style="width: 100%;">
-                <td><%= @group.name %></td>
-                <td>
-                  <% @group.customers.each do |member| %>
-                    <%= member.name %><br>
-                  <% end %>
-                </td>
-                <td>
-                  <% if current_customer.group_id == @group.id %>
-                    参加中
-                      <% unless @group.group_leader_customer_id == current_customer.id %>
-                        <%= link_to "脱退する",quit_groups_path,class:"btn btn-stitch-red2",data:{confirm:"本当に脱退しますか？"} %>
-                      <% end %>
-                  <% else %>
-                    <%= form_with model: @customer,url: join_groups_path do |f| %>
-                    <%= f.hidden_field :group_id, :value => @group.id %>
-                    <%= f.submit "参加",class:"btn btn-stitch-pink1" %>
+          <table class = "table">
+            <thead class = "pink">
+              <th>グループ名</th>
+              <th>メンバー</th>
+              <th></th>
+            </thead>
+            <tbody style="width: 100%;">
+              <td><%= @group.name %></td>
+              <td>
+                <% @group.customers.each do |member| %>
+                  <%= member.name %><br>
+                <% end %>
+              </td>
+              <td>
+                <% if current_customer.group_id == @group.id %>
+                  参加中
+                    <% unless @group.group_leader_customer_id == current_customer.id %>
+                      <%= link_to "脱退する",quit_groups_path,class:"btn btn-stitch-red2",data:{confirm:"本当に脱退しますか？"} %>
                     <% end %>
+                <% else %>
+                  <%= form_with model: @customer,url: join_groups_path do |f| %>
+                  <%= f.hidden_field :group_id, :value => @group.id %>
+                  <%= f.submit "参加",class:"btn btn-stitch-pink1" %>
                   <% end %>
-                </td>
-              </tbody>
-            </table>
+                <% end %>
+              </td>
+            </tbody>
+          </table>
         <% else %>
           <p>一致するグループ招待コードが見つかりませんでした</p>
         <% end %>

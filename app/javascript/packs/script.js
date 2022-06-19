@@ -1,7 +1,6 @@
 document.addEventListener("turbolinks:load", () => {
   $(function(){
     $('input[type="checkbox"]').on('change', function(){
-      /// チェックされたvalue値を配列として取得
       var vals = $('input[type="checkbox"]:checked').map(function(){
         return $(this).val();
       }).get();
@@ -19,7 +18,6 @@ document.addEventListener("turbolinks:load", () => {
 
   $(function(){
     $('input[type="checkbox"]').on('change', function(){
-      /// チェックされたvalue値を配列として取得
       var vals = $('input[type="checkbox"]:checked').map(function(){
         return $(this).val();
       }).get();
