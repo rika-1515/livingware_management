@@ -8,65 +8,63 @@
   <div class = "row">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
-      <!--<%= render partial: 'public/shared/flash_message' %>-->
-        <table>
-          <tr>
-            <div class="field">
-              <td>
-                <%= f.label :ニックネーム %>
-              </td>
-              <td>
-                <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"太郎", style: "width:90%" %><br>
-                ※ネット上に公開される名前です
-              </td>
-            </div>
-          </tr>
-          <tr>
-            <div class="field">
-              <td>
-                <%= f.label :メールアドレス %>
-              </td>
-              <td>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:90%" %>
-              </td>
-            </div>
-          </tr>
-
-          <tr>
-            <div class="field">
-              <td>
-                <%= f.label :パスワード %>
-                <% if @minimum_password_length %>
+      <table>
+        <tr>
+          <div class="field">
+            <td>
+              <%= f.label :ニックネーム %>
+            </td>
+            <td>
+              <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"太郎", style: "width:90%" %><br>
+              ※ネット上に公開される名前です
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <td>
+              <%= f.label :メールアドレス %>
+            </td>
+            <td>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:90%" %>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <td>
+              <%= f.label :パスワード %>
+              <% if @minimum_password_length %>
                 (<%= @minimum_password_length %> 字以上)
-                <% end %>
-              </td>
-              <td>
-                <%= f.password_field :password, autocomplete: "new-password", style: "width:90%" %>
-              </td>
-            </div>
-          </tr>
-          <tr>
-            <div class="field">
-              <td>
-                <%= f.label :パスワード %>(確認用)
-              </td>
-              <td>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width:90%" %>
-              </td>
-            </div>
-          </tr>
-          <tr>
-            <td></td>
-            <div class="actions">
-              <td><%= f.submit "新規会員登録",class:"btn btn-stitch-light-blue" %></td>
-            </div>
-          </tr>
-        </table>
+              <% end %>
+            </td>
+            <td>
+              <%= f.password_field :password, autocomplete: "new-password", style: "width:90%" %>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <td>
+              <%= f.label :パスワード %>(確認用)
+            </td>
+            <td>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width:90%" %>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <td></td>
+          <div class="actions">
+            <td><%= f.submit "新規会員登録",class:"btn btn-stitch-light-blue" %></td>
+          </div>
+        </tr>
+      </table>
     <% end %>
   </div>
   <div class = "row">
     <h5><span class="font-weight-bold center">既に登録済みの方は
-    <%=link_to "こちら",new_customer_session_path,class:"btn btn-stitch-pink1" %> からログインしてください
+      <%=link_to "こちら",new_customer_session_path,class:"btn btn-stitch-pink1" %> からログインしてください
     </span></h5>
   </div>
 </div>

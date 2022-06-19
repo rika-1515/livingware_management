@@ -7,14 +7,14 @@
   </div>
   <div class = "row">
     <div class = "col-md-6 bottom-margin">
-        <% if @category.errors.any? %>
-        <div class="alert alert-danger">
-          <ul>
-            <% @category.errors.full_messages.each do |message| %>
+      <% if @category.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
             <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
       <%= form_with model: @category,url: admin_master_categories_path,local:true do |f| %>
         <table class = "table-margin1">
@@ -41,15 +41,15 @@
             <th colspan = "2">カテゴリー</th>
           </tr>
         </thead>
-        <% @categories.each do |categories| %>
+        <% @categories.each do |category| %>
         <tbody>
           <tr>
             <td align = "center">
-              <%=categories.name %>
+              <%=category.name %>
             </td>
             <td align = "right">
-              <%=link_to "編集する", edit_admin_master_category_path(categories.id),class:"btn btn-stitch-purple" %>
-              <%=link_to "削除する",admin_master_category_path(categories.id),method: :delete, data: {confirm: "本当に削除しますか？"},class:"btn btn-stitch-red3" %>
+              <%=link_to "編集する", edit_admin_master_category_path(category.id),class:"btn btn-stitch-purple" %>
+              <%=link_to "削除する",admin_master_category_path(category.id),method: :delete, data: {confirm: "本当に削除しますか？"},class:"btn btn-stitch-red3" %>
             </td>
           </tr>
         <% end %>

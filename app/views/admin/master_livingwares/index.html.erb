@@ -6,15 +6,15 @@
     <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
   </div>
   <div class="row">
-      <% if @livingware.errors.any? %>
-        <div class="alert alert-danger">
-          <ul>
-            <% @livingware.errors.full_messages.each do |message| %>
+    <% if @livingware.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @livingware.errors.full_messages.each do |message| %>
             <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
   <div class="row">
     <div class = "col-md-5 bottom-margin">

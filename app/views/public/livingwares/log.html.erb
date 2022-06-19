@@ -17,7 +17,6 @@
           <th>備考</th>
         </tr>
       </thead>
-
       <tbody class="table-borderless">
         <% @livingwares.each do |livingware| %>
           <%= fb.fields_for "livingware[]", livingware do |f| %>
@@ -45,9 +44,8 @@
         <% end %>
       </tbody>
     </table>
-
     <div align="center">
-    <%= fb.submit '変更を確定する' ,class:"btn btn-stitch-orange" %>
+      <%= fb.submit '変更を確定する' ,class:"btn btn-stitch-orange" %>
     </div>
     <% end %>
   </div>

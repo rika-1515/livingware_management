@@ -50,12 +50,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-    protected
+  protected
 
-    # If you have extra params to permit, append them to the sanitizer.
-    def configure_sign_up_params
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:group_id])
-    end
+  # If you have extra params to permit, append them to the sanitizer.
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:group_id])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -72,12 +72,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-    def after_sign_in_path_for(resource)
-      categories_path
-    end
+  def after_sign_in_path_for(resource)
+    categories_path
+  end
 
-    def after_sign_out_path_for(resource)
-      root_path
-    end
+  def after_sign_out_path_for(resource)
+    root_path
+  end
 
 end

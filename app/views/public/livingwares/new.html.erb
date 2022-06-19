@@ -10,7 +10,7 @@
     <div class="alert alert-danger">
       <ul>
         <% @livingware.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -18,61 +18,61 @@
   </div>
   <div class = "row">
     <%= form_with model: @livingware,url:livingwares_path do |f| %>
-      <table align="center">
-        <tr>
-          <td>
-            <label for="inputGenre_id">カテゴリー</label>
-          </td>
-          <td>
-            <div><%=f.collection_select(:category_id, @categories, :id, :name) %></div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="inputName">生活用品</label>
-          </td>
-          <td>
-            <div><%=f.text_field:name,autofocus:true,placeholder:"洗剤", style: "width:90%" %></div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="inputPrice">保管数</label>
-          </td>
-          <td>
-            <div><%=f.select :amount, *[0..100], style: "width:25%" %></div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="inputPrice">基準数</label>
-          </td>
-          <td>
-            <div><%=f.select :amount_standard, *[0..100], style: "width:25%" %></div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="inputIntroduction">備考</label>
-          </td>
-          <td>
-            <div><%=f.text_area:note,autofocus:true,placeholder:"保管場所等、補足で記述したいことがあれば記述してください", style: "width:90%" %></div>
-          </td>
-        </tr>
-        <tr>
-          <td width = "150">
-            <label for="inputImage">生活用品の画像</label>
-          </td>
-          <td>
-            <div><%=f.file_field:livingware_image,placeholder:"生活用品画像",accept:"image/*" %></div>
-          </td>
-        </tr>
-        <tr>
-          <td colspan = "2" align = "center">
-            <%=f.submit '新規登録',class:"btn btn-stitch-orange" %>
-          </td>
-        </tr>
-      <% end %>
-      </table>
-    </div>
+    <table align="center">
+      <tr>
+        <td>
+          <label for="inputGenre_id">カテゴリー</label>
+        </td>
+        <td>
+          <div><%=f.collection_select(:category_id, @categories, :id, :name) %></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="inputName">生活用品</label>
+        </td>
+        <td>
+          <div><%=f.text_field:name,autofocus:true,placeholder:"洗剤", style: "width:90%" %></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="inputPrice">保管数</label>
+        </td>
+        <td>
+          <div><%=f.select :amount, *[0..100], style: "width:25%" %></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="inputPrice">基準数</label>
+        </td>
+        <td>
+          <div><%=f.select :amount_standard, *[0..100], style: "width:25%" %></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="inputIntroduction">備考</label>
+        </td>
+        <td>
+          <div><%=f.text_area:note,autofocus:true,placeholder:"保管場所等、補足で記述したいことがあれば記述してください", style: "width:90%" %></div>
+        </td>
+      </tr>
+      <tr>
+        <td width = "150">
+          <label for="inputImage">生活用品の画像</label>
+        </td>
+        <td>
+          <div><%=f.file_field:livingware_image,placeholder:"生活用品画像",accept:"image/*" %></div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan = "2" align = "center">
+          <%=f.submit '新規登録',class:"btn btn-stitch-orange" %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
 </div>

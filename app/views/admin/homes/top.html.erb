@@ -1,4 +1,4 @@
-<div class = "container"> 
+<div class = "container">
   <div class = "row">
     <%= image_tag 'illustrain02-dog03.png', :size => '110x110' %>
     <h3><span class="font-weight-bold center">お問い合わせ一覧</span></h3>
@@ -7,43 +7,43 @@
   </div>
   <div class="row">
     <table class="table table-striped">
-        <thead class="green">
-          <tr>
-            <th>問合せ日時</th>
-            <th>会員名</th>
-            <th>タイトル</th>
-            <th>対応ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <% @inquiries.each do |inquiries| %>
-              <td>
-                <%=link_to admin_inquiry_path(inquiries.id) do %>
-                <%= inquiries.created_at.strftime('%Y/%-m/%-d %H:%M:%S') %>
-                <% end %>
-              </td>
-              <td>
-                <%=inquiries.customer.name %>
-              </td>
-              <td>
-                <%=inquiries.title %>
-              </td>
-              <td>
-                <% if inquiries.waiting? %>
-                未対応
-                <% elsif inquiries.working? %>
-                対応中
-                <% else %>
-                対応済
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
+      <thead class="green">
+        <tr>
+          <th>問合せ日時</th>
+          <th>会員名</th>
+          <th>タイトル</th>
+          <th>対応ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <% @inquiries.each do |inquiries| %>
+          <td>
+            <%=link_to admin_inquiry_path(inquiries.id) do %>
+            <%= inquiries.created_at.strftime('%Y/%-m/%-d %H:%M:%S') %>
+            <% end %>
+          </td>
+          <td>
+            <%=inquiries.customer.name %>
+          </td>
+          <td>
+            <%=inquiries.title %>
+          </td>
+          <td>
+            <% if inquiries.waiting? %>
+            未対応
+            <% elsif inquiries.working? %>
+            対応中
+            <% else %>
+            対応済
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
     <div class ="d-flex justify-content-center">
-        <%= paginate @inquiries %>
+      <%= paginate @inquiries %>
     </div>
+  </div>
 </div>

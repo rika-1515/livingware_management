@@ -8,9 +8,9 @@
   </div>
   <div class = "row">
     <% if @livingware.errors.any? %>
-      <div class="alert alert-danger"  align="center">
+      <div class="alert alert-danger" align="center">
         <ul>
-          <% @livingware.errors.full_messages.each do |message| %>
+        <% @livingware.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
