@@ -11,8 +11,8 @@
         <%= @customer.errors.count %>件のエラーが発生しました
         <ul>
           <% @customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
+            <li><%= message %></li>
+          <% end %>
         </ul>
       </div>
     <% end %>
@@ -25,22 +25,22 @@
           <td><%=@customer.id %></td>
         </tr>
         <tr>
-            <div class="field">
-              <td><%= f.label :ニックネーム %></td>
-              <td>
+          <div class="field">
+            <td><%= f.label :ニックネーム %></td>
+            <td>
               <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"太郎" %>
-              </td>
-            </div>
+            </td>
+          </div>
         </tr>
         <tr>
-            <div class="field">
-              <td width = 150>
+          <div class="field">
+            <td width = 150>
               <%= f.label :メールアドレス %>
-              </td>
-              <td>
+            </td>
+            <td>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              </td>
-            </div>
+            </td>
+          </div>
         </tr>
         <tr>
           <td>

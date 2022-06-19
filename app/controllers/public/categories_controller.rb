@@ -37,7 +37,6 @@ class Public::CategoriesController < ApplicationController
   end
 
   private
-  # ストロングパラメータ
   def category_params
     params.require(:category).permit(:group_id,:name)
   end

@@ -6,15 +6,15 @@
     <%= image_tag 'illustrain02-bird19.png', :size => '110x110' %>
   </div>
   <div class = "row">
-      <% if @category.errors.any? %>
-        <div class = "alert alert-danger">
-          <ul>
-            <% @category.errors.full_messages.each do |message| %>
+    <% if @category.errors.any? %>
+      <div class = "alert alert-danger">
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
             <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
   <div class = "row">
     <div class = "col-md-6 bottom-margin">
@@ -43,15 +43,15 @@
             <th colspan = "2">カテゴリー</th>
           </tr>
         </thead>
-        <% @categories.each do |categories| %>
+        <% @categories.each do |category| %>
         <tbody>
           <tr>
             <td>
-              <%=categories.name %>
+              <%=category.name %>
             </td>
             <td align = "right">
-              <%=link_to "編集する", edit_category_path(categories.id),class:"btn btn-stitch-purple" %>
-              <%=link_to "削除する",category_path(categories.id),method: :delete, data: {confirm: "本当に削除しますか？"},class:"btn btn-stitch-red3" %>
+              <%=link_to "編集する", edit_category_path(category.id),class:"btn btn-stitch-purple" %>
+              <%=link_to "削除する",category_path(category.id),method: :delete, data: {confirm: "本当に削除しますか？"},class:"btn btn-stitch-red3" %>
             </td>
           </tr>
         <% end %>

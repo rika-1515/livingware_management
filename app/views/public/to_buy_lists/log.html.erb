@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container">
   <div class = "row">
     <%= image_tag 'illustrain02-dog03.png', :size => '110x110' %>
     <h3><span class="font-weight-bold center">生活用品変更一覧</span></h3>
@@ -7,43 +7,43 @@
   </div>
   <div class="row">
     <table class="table table-striped">
-      <%= form_with url:to_buy_lists_path, method: :patch do |fb| %>
-        <thead class="green">
-          <tr>
-            <th>カテゴリー</th>
-            <th>生活用品</th>
-            <th>保管数</th>
-            <th>基準数</th>
-            <th>備考</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @livingwares.each do |livingware| %>
-            <%= fb.fields_for "livingware[]", livingware do |f| %>
-              <tr>
-                <%= f.hidden_field :id,value:livingware.id %>
-                <td>
-                  <%=livingware.category.name %>
-                </td>
-                <td>
-                  <%=livingware.name %>
-                </td>
-                <td>
-                  <%= f.hidden_field :amount, value: livingware.amount %>
-                  <%= livingware.amount.to_s(:delimited) %>
-                </td>
-                <td>
-                  <%=livingware.amount_standard.to_s(:delimited) %>
-                </td>
-                <td>
-                  <%=livingware.note %>
-                </td>
-              </tr>
-            <% end %>
+    <%= form_with url:to_buy_lists_path, method: :patch do |fb| %>
+      <thead class="green">
+        <tr>
+          <th>カテゴリー</th>
+          <th>生活用品</th>
+          <th>保管数</th>
+          <th>基準数</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @livingwares.each do |livingware| %>
+          <%= fb.fields_for "livingware[]", livingware do |f| %>
+            <tr>
+              <%= f.hidden_field :id,value:livingware.id %>
+              <td>
+                <%=livingware.category.name %>
+              </td>
+              <td>
+                <%=livingware.name %>
+              </td>
+              <td>
+                <%= f.hidden_field :amount, value: livingware.amount %>
+                <%= livingware.amount.to_s(:delimited) %>
+              </td>
+              <td>
+                <%=livingware.amount_standard.to_s(:delimited) %>
+              </td>
+              <td>
+                <%=livingware.note %>
+              </td>
+            </tr>
           <% end %>
-        </tbody>
+        <% end %>
+      </tbody>
     </table>
-      <%= fb.submit '変更を確定する' ,class:"btn-stitch-green" %>
-      <% end %>
-  </div> 
+    <%= fb.submit '変更を確定する' ,class:"btn-stitch-green" %>
+    <% end %>
+  </div>
 </div>
