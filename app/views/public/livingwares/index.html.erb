@@ -14,7 +14,7 @@
       <h3 class = "title2"><span class="font-weight-bold"><%= category.name %></span></h3>
         <% category.livingwares.each do |livingware| %>
           <%= fb.fields_for "livingware[]", livingware do |f| %>
-          <div style = "position: relative;">
+          <div class = "bottom-margin2" style = "position: relative;">
               <span class = "font-weight-bold">変更したらチェック♪　</span>
               <%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %>
             <dl>
