@@ -5,7 +5,47 @@
     <%= image_tag 'illustrain02-dog01.png', :size => '110x110' %>
     <%= image_tag 'illustrain02-dog18.png', :size => '110x110' %>
   </div>
-  <div class="row">
+  <div class = "small-display-box top-body-margin">
+    <%= form_with url:log_to_buy_lists_path,method: :post do |fb| %>
+      <% @categories.each do |category| %>
+      <h3 class = "title3"><span class="font-weight-bold"><%= category.name %></span></h3>
+        <% category.livingwares.each do |livingware| %>
+          <%= fb.fields_for "livingware[]", livingware do |f| %>
+            <% if livingware.to_buy_judge.negative? %>
+              <div style = "position: relative;">
+                <dl>
+                  <dt>生活用品</dt>
+                  <dd>
+                    <%=link_to livingware_path(livingware.id) do %>
+                      <%=livingware.name %>
+                    <% end %>
+                  </dd>
+                  <dt>不足数</dt>
+                  <dd><%= f.select :buy_amount, *[0..100], :selected => livingware.buy_amount, style: "width:25%" %></dd>
+                  <dt>保管数</dt>
+                  <dd><%=livingware.amount.to_s(:delimited) %></dd>
+                  <dt>基準数</dt>
+                  <dd><%=livingware.amount_standard.to_s(:delimited) %></dd>
+                  <dt>備考</dt>
+                  <dd><%=livingware.note %></dd>
+                </dl>
+                <div class="font-weight-bold boxmi212" style="position: absolute;top:26px;right:5px;width:192px;height:88px;">
+                  不足分を購入した！
+                  <p style="position: absolute;top:46px;right:91px;">
+                    <%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <div class = "text-center">
+        <%= fb.submit '確認画面に進む' ,class:"btn-stitch-gray" ,id:"submit-btn" ,disabled:true %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row display-box">
     <%= form_with url:log_to_buy_lists_path,method: :post do |fb| %>
       <table class="table table-striped">
         <thead class="green">
@@ -51,7 +91,7 @@
           <% end %>
         </tbody>
       </table>
-      <%= fb.submit '確認画面に進む' ,class:"btn-stitch-gray" ,id:"submit-btn" ,disabled:true %>
+      <%= fb.submit '確認画面に進む' ,class:"btn-stitch-gray" ,id:"submit-btn3" ,disabled:true %>
     <% end %>
   </div>
 </div>

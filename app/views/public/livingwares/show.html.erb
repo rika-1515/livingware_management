@@ -6,10 +6,10 @@
     <%= image_tag 'illustrain02-cat29.png', :size => '110x110' %>
   </div>
   <div class="row">
-    <div class = "col-md-3 col-12 picture" align = "center">
+    <div class = "col-md-5 col-12 picture" align = "center">
       <%= image_tag @livingware.get_livingware_image(200,300) %>
     </div>
-    <div class = "col-md-6 col-12" align = "center">
+    <div class = "col-md-7 col-12" align = "center">
       <table>
         <tr>
           <td width = "100">カテゴリー</td>
@@ -36,17 +36,17 @@
           </td>
         </tr>
         <tr>
-          <td>備考</td>
+          <td valign="top">備考</td>
           <td>
             <%=@livingware.note %>
           </td>
         </tr>
       </table>
-      <div>
+      <div class = "margin3">
         <%=link_to "編集する", edit_livingware_path(@livingware.id),class:"btn btn-stitch-orange" %>
         <%=link_to "削除する", livingware_path(@livingware.id),method: :delete, data: {confirm: "本当に削除しますか？"},class:"btn btn-stitch-red1" %>
+        <div><%=link_to "生活用品一覧に戻る", livingwares_path,class:"btn btn-stitch-orange" %></div>
       </div>
-      <div><%=link_to "生活用品一覧に戻る", livingwares_path,class:"btn btn-stitch-orange" %></div>
     </div>
   </div>
 </div>

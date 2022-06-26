@@ -19,4 +19,11 @@ class Livingware < ApplicationRecord
     self.amount_standard - self.amount
   end
 
+  def categories_where
+    category.id = 0
+    categories.each do |c|
+      category.id = c.category.id + 1
+    end
+  end
+
 end
