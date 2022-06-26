@@ -12,7 +12,7 @@
         <% category.livingwares.each do |livingware| %>
           <%= fb.fields_for "livingware[]", livingware do |f| %>
             <% if livingware.to_buy_judge.negative? %>
-              <div style = "position: relative;">
+              <div class = "bottom-margin2" style = "position: relative;">
                 <dl>
                   <dt>生活用品</dt>
                   <dd>
