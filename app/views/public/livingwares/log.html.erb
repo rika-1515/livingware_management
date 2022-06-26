@@ -14,7 +14,6 @@
           <th>生活用品</th>
           <th>保管数</th>
           <th>基準数</th>
-          <th>備考</th>
         </tr>
       </thead>
       <tbody class="table-borderless">
@@ -36,17 +35,19 @@
                 <%= f.hidden_field :amount_standard, value: livingware.amount_standard %>
                 <%=livingware.amount_standard.to_s(:delimited) %>
               </td>
-              <td>
-                <%=livingware.note %>
-              </td>
             </tr>
           <% end %>
         <% end %>
       </tbody>
     </table>
-    <div align="center">
-      <%= fb.submit '変更を確定する' ,class:"btn btn-stitch-orange" %>
-    </div>
-    <% end %>
   </div>
+  <div class = "display-box",align = "center">
+    <%= fb.submit '変更を確定する' ,class:"btn btn-stitch-orange" %>
+  </div>
+  <div class = "small-display-box">
+  <div class = "text-center">
+    <%= fb.submit '変更を確定する' ,class:"btn btn-stitch-orange" %>
+    </div>
+  </div>
+    <% end %>
 </div>

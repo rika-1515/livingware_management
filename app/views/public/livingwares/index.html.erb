@@ -8,7 +8,46 @@
       <%=link_to "生活用品を登録する",new_livingware_path,class:"btn btn-stitch-orange" %>
     </div>
   </div>
-  <div class="row">
+  <div class = "small-display-box top-body-margin">
+    <%= form_with url:log_livingwares_path,method: :post do |fb| %>
+      <% @categories.each do |category| %>
+      <h3 class = "title2"><span class="font-weight-bold"><%= category.name %></span></h3>
+        <% category.livingwares.each do |livingware| %>
+          <%= fb.fields_for "livingware[]", livingware do |f| %>
+          <div style = "position: relative;">
+              <span class = "font-weight-bold">変更したらチェック♪　</span>
+              <%=f.check_box :id, { checked: false, include_hidden: false },livingware.id %>
+            <dl>
+              <dt>生活用品</dt>
+              <dd>
+                <%=link_to livingware_path(livingware.id) do %>
+                  <%=livingware.name %>
+                <% end %>
+              </dd>
+              <dt>保管数</dt>
+              <dd><%= f.select :amount, *[0..100] %></dd>
+              <dt>基準数</dt>
+              <dd><%= f.select :amount_standard, *[0..100] %></dd>
+              <dt>備考</dt>
+              <dd><%=livingware.note %></dd>
+            </dl>
+            <% if livingware.to_buy_judge.negative? %>
+            <div class="font-weight-bold boxmi21" style="position: absolute;top:32px;right:20px;width:124px;height:64px;">
+              <p style="position: absolute;top:18px;right:30px;">
+                購入必要
+              </p>
+            </div>
+            <% end %>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      <div class = "text-center">
+        <%= fb.submit '確認画面に進む' ,class:"btn-stitch-gray" ,id:"submit-btn2" ,disabled:true %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row display-box">
     <%= form_with url:log_livingwares_path,method: :post do |fb| %>
       <table class="table table-striped">
         <thead class="orange">
@@ -54,7 +93,7 @@
           <% end %>
         </tbody>
       </table>
-      <%= fb.submit '確認画面に進む' ,class:"btn-stitch-gray",id:"submit-btn2" ,disabled:true %>
+      <%= fb.submit '確認画面に進む' ,class:"btn-stitch-gray",id:"submit-btn4" ,disabled:true %>
     <% end %>
   </div>
 </div>
