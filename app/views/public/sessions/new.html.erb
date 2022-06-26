@@ -5,7 +5,28 @@
     <%= image_tag 'illustrain02-tropical03.png', :size => '110x110' %>
     <%= image_tag 'illustrain02-bird10.png', :size => '110x110' %>
   </div>
-  <div class = "row">
+  <div class = "small-display-box top-body-margin">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field margin1">
+        <%= f.label :メールアドレス %><br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:90%" %>
+      </div>
+      <div class="field margin1">
+        <%= f.label :パスワード %><br>
+        <%= f.password_field :password, autocomplete: "current-password", style: "width:90%" %>
+      </div>
+      <div class="actions margin3">
+        <%= f.submit "ログイン",class:"btn btn btn-stitch-pink1" %>
+      </div>
+    <% end %>
+  </div>
+  <div class = "small-display-box top-body-margin">
+    <h5><span class="font-weight-bold center">会員登録がお済みでない方
+      <%=link_to "こちら",new_customer_registration_path,class:"btn btn-stitch-light-blue" %> から新規登録を行ってください
+    </span></h5>
+  </div>
+
+  <div class = "row display-box">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <table>
         <tr>
@@ -37,7 +58,7 @@
       </table>
     <% end %>
   </div>
-  <div class = "row">
+  <div class = "row display-box">
     <h5><span class="font-weight-bold center">会員登録がお済みでない方
       <%=link_to "こちら",new_customer_registration_path,class:"btn btn-stitch-light-blue" %> から新規登録を行ってください
     </span></h5>
