@@ -19,6 +19,11 @@ class Public::CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+    if @category.group_id == current_customer.group_id
+      render :edit
+    else
+      redirect_to categories_path
+    end
   end
 
   def update
@@ -32,8 +37,12 @@ class Public::CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy
-    redirect_to categories_path
+    if @category.group_id == current_customer.group_id
+      @category.destroy
+      redirect_to categories_path
+    else
+      redirect_to categories_path
+    end
   end
 
   private
