@@ -21,6 +21,11 @@ class Public::LivingwaresController < ApplicationController
   def show
     @livingware = Livingware.find(params[:id])
     @categories = current_customer.group.categories
+    if @livingware.group_id == current_customer.group_id
+      render :show
+    else
+      redirect_to livingwares_path
+    end
   end
 
   def new
@@ -42,6 +47,11 @@ class Public::LivingwaresController < ApplicationController
   def edit
     @livingware = Livingware.find(params[:id])
     @categories = current_customer.group.categories
+    if @livingware.group_id == current_customer.group_id
+      render :edit
+    else
+      redirect_to livingwares_path
+    end
   end
 
   def update
@@ -65,8 +75,12 @@ class Public::LivingwaresController < ApplicationController
 
   def destroy
     @livingware = Livingware.find(params[:id])
-    @livingware.destroy
-    redirect_to livingwares_path
+    if @livingware.group_id == current_customer.group_id
+      @livingware.destroy
+      redirect_to livingwares_path
+    else
+      redirect_to livingwares_path
+    end
   end
 
 
